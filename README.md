@@ -19,6 +19,6 @@ Use the [Feature Request template](https://github.com/FrontierPilot/Frontier-Pil
 Follow the progress on the [Project Board](https://github.com/users/FrontierPilot/projects/1).
 
 ## 💬 Community
-Join the Discord server: [your invite link]
+Join the Discord server: [https://discord.gg/qVxtGKQ5f2]
 
 Thanks for testing and sharing your feedback!
