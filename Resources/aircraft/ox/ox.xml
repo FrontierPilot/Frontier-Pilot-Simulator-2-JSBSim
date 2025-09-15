@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<fdm_config release="Alpha" version="2.0">
+    <metrics file="Metrics.xml" />
+    <mass_balance file="Mass.xml" />
+    <ground_reactions file="Gear.xml" />
+    <propulsion file="Propulsion.xml" />
+    <aerodynamics file="AeroEmpty.xml" />
+
+    <system file="Effectors.xml" /> 
+    <flight_control file="FlightControl.xml" />
+
+    <external_reactions>
+        <force name="UE_CollisionForce" frame="BODY">
+            <location unit="IN">
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </location>
+            <!-- The direction describes a unit vector.-->
+            <direction>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </direction>
+            <magnitude> 0.0 </magnitude>
+        </force>
+    </external_reactions>
+</fdm_config>

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<flight_control name="FCS: OX-VTOL">
+  <channel name="Pilot_Inputs">
+
+    <summer name="pilotPitch_norm">
+      <input>fcs/elevator-cmd-norm</input>
+      <input>fcs/pitch-trim-cmd-norm</input>
+      <clipto>
+        <min>-1.0</min>
+        <max>1.0</max>
+      </clipto>
+      <output>fcs/pilotPitch_norm</output>
+    </summer>
+
+    <summer name="pilotRoll_norm">
+      <input>fcs/aileron-cmd-norm</input>
+      <input>fcs/roll-trim-cmd-norm</input>
+      <clipto>
+        <min>-1.0</min>
+        <max>1.0</max>
+      </clipto>
+      <output>fcs/pilotRoll_norm</output>
+    </summer>
+
+    <pure_gain name="refTheta_rad">
+      <input>fcs/pilotPitch_norm</input>
+      <gain>0.75</gain>
+      <output>fcs/refPitch_rps</output>
+    </pure_gain>
+
+    <pure_gain name="refPhi_rad">
+      <input>fcs/pilotRoll_norm</input>
+      <gain>0.75</gain>
+      <output>fcs/refRoll_rps</output>
+    </pure_gain>
+
+  </channel>
+
+  <!-- Enable(1)/Disable(0) VTOL Stabilization-->
+  <property value="1.0">fcs/EnableVTOLStabilization</property>
+
+  <!-- set value from EngineCommands[0].Throttle (c++ ApplyEnginesCommands) -->
+  <property>fcs/inputThrottle_nd</property>
+  <property value="0.0">fcs/refPitch_rad</property>
+  <property value="0.0">fcs/refRoll_rad</property>
+  <property>fcs/pitch_control_is_saturated</property>
+
+  <property>fcs/refRoll_rps</property>
+  <property>fcs/errRoll_rps</property>
+  <property>fcs/errRoll_rad</property>
+  <property>fcs/refRoll_rps_from_angle_error</property>
+
+  <property>fcs/refPitch_rps</property>
+  <property>fcs/errPitch_rps</property>
+  <property>fcs/errPitch_rad</property>
+  <property>fcs/refPitch_rps_from_angle_error</property>
+
+  <channel name="Engine_Saturation_Calculator">
+    <switch name="fcs/pitch_control_is_saturated">
+      <default value="0" />
+      <test logic="OR" value="1">
+        fcs/throttle-cmd-norm[0] le 0.0
+        fcs/throttle-cmd-norm[0] ge 1.0
+        fcs/throttle-cmd-norm[1] le 0.0
+        fcs/throttle-cmd-norm[1] ge 1.0
+        fcs/throttle-cmd-norm[2] le 0.0
+        fcs/throttle-cmd-norm[2] ge 1.0
+        fcs/throttle-cmd-norm[3] le 0.0
+        fcs/throttle-cmd-norm[3] ge 1.0
+      </test>
+      <output>fcs/pitch_control_is_saturated</output>
+    </switch>
+  </channel>
+
+  <channel name="OuterLoop-Angles-Roll">
+    <summer name="roll_angle_error_summer">
+      <input>fcs/refRoll_rad</input>
+      <input>-attitude/phi-rad</input>
+      <output>fcs/errRoll_rad</output>
+    </summer>
+
+    <pid name="roll_angle_to_rate_pid">
+      <input>fcs/errRoll_rad</input>
+      <kp>3.0</kp>
+      <output>fcs/refRoll_rps_from_angle_error</output>
+    </pid>
+  </channel>
+
+  <channel name="OuterLoop-Angles-Pitch">
+    <summer name="pitch_angle_error_summer">
+      <input>fcs/refPitch_rad</input>
+      <input>-attitude/pitch-rad</input>
+      <output>fcs/errPitch_rad</output>
+    </summer>
+
+    <pid name="pitch_angle_to_rate_pid">
+      <input>fcs/errPitch_rad</input>
+      <kp>3.0</kp> 
+      <output>fcs/refPitch_rps_from_angle_error</output>
+    </pid>
+  </channel>
+
+  <channel name="InnerLoop-Rates">
+
+    <summer name="pitch_error_summer">
+      <input>fcs/refPitch_rps_from_angle_error</input>
+      <input>-velocities/qi-rad_sec</input>
+      <output>fcs/errPitch_rps</output>
+    </summer>
+
+    <pure_gain name="pitch_error_gain">
+      <input>fcs/errPitch_rps</input>
+      <gain>fcs/EnableVTOLStabilization</gain>
+      <output>fcs/errPitch_rps</output>
+    </pure_gain>
+
+    <pid name="fcs/cmdPitch_rps">
+      <input>fcs/errPitch_rps</input>
+      <kp> 8.0 </kp>
+      <ki> 0.1 </ki>
+      <kd> 0.0 </kd>
+      <trigger>fcs/pitch_control_is_saturated</trigger>
+    </pid>
+
+    <!-- Roll Control Loop -->
+    <summer name="roll_error_summer">
+      <input>fcs/refRoll_rps_from_angle_error</input>
+      <input>-velocities/pi-rad_sec</input>
+      <output>fcs/errRoll_rps</output>
+    </summer>
+
+    <pure_gain name="roll_error_gain">
+      <input>fcs/errRoll_rps</input>
+      <gain>fcs/EnableVTOLStabilization</gain>
+      <output>fcs/errRoll_rps</output>
+    </pure_gain>
+
+    <pid name="fcs/cmdRoll_rps">
+      <input>fcs/errRoll_rps</input>
+      <kp> 8.0 </kp>
+      <ki> 0.05 </ki>
+      <kd> 0.0 </kd>
+      <trigger>fcs/pitch_control_is_saturated</trigger>
+    </pid>
+
+  </channel>
+
+
+  <channel name="Control Mixer">
+
+    <!-- FRONT RIGHT ENGINE -->
+    <summer name="cmdFR_nd">
+      <input>fcs/inputThrottle_nd</input>
+      <input>fcs/cmdPitch_rps</input>
+      <input>-fcs/cmdRoll_rps</input>
+      <output>fcs/cmdFR_nd</output>
+    </summer>
+
+    <!-- FRONT LEFT ENGINE -->
+    <summer name="cmdFL_nd">
+      <input>fcs/inputThrottle_nd</input>
+      <input>fcs/cmdPitch_rps</input>
+      <input>fcs/cmdRoll_rps</input>
+      <output>fcs/cmdFL_nd</output>
+    </summer>
+
+    <!-- AFT LEFT ENGINE -->
+    <summer name="cmdAL_nd">
+      <input>fcs/inputThrottle_nd</input>
+      <input>-fcs/cmdPitch_rps</input>
+      <input>fcs/cmdRoll_rps</input>
+      <output>fcs/cmdAL_nd</output>
+    </summer>
+
+
+    <!-- AFT RIGHT ENGINE -->
+    <summer name="cmdAR_nd">
+      <input>fcs/inputThrottle_nd</input>
+      <input>-fcs/cmdPitch_rps</input>
+      <input>-fcs/cmdRoll_rps</input>
+      <output>fcs/cmdAR_nd</output>
+    </summer>
+
+  </channel>
+
+</flight_control>

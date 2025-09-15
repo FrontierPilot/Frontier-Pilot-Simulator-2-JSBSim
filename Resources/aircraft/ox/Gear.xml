@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<ground_reactions>
+
+	<contact type="BOGEY" name="NOSE">
+		<location unit="M">
+			<x> 7.5 </x>
+			<y> 0.0 </y>
+			<z> -2.7 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+		<spring_coeff unit="N/M"> 155000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 31000.0 </damping_coeff>
+		<retractable>1</retractable>
+	</contact>
+<!--
+	<contact type="BOGEY" name="NOSE_RIGHT">
+		<location unit="M">
+			<x> 7.5 </x>
+			<y> 5.0 </y>
+			<z> -2.7 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+		<spring_coeff unit="N/M"> 155000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 31000.0 </damping_coeff>
+		<retractable>1</retractable>
+	</contact>
+-->	
+	<contact type="BOGEY" name="LEFT_MAIN">
+		<location unit="M">
+			<x> 21.5 </x>
+			<y> -5.0 </y>
+			<z> -2.7 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+		<spring_coeff unit="N/M"> 155000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 31000.0 </damping_coeff>
+		<retractable>1</retractable>
+	</contact>
+	<contact type="BOGEY" name="RIGHT_MAIN">
+		<location unit="M">
+			<x> 21.5 </x>
+			<y> 5.0 </y>
+			<z> -2.7 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+		<spring_coeff unit="N/M"> 155000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 31000.0 </damping_coeff>
+		<retractable>1</retractable>
+	</contact>
+	
+</ground_reactions>

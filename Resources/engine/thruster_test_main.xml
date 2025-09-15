@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!--
+  Thrust is computed directly by the engine
+-->
+<direct name="thruster_test_main">
+</direct>
