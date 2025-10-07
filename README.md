@@ -10,9 +10,6 @@ If the community shows enough interest and votes for it, this can grow into a fu
 Test builds will be uploaded to [Frontier Pilot Simulator 2](https://fps2.frontierpilot.net/).
 
 ### 📂 Resources Folder
-- JSBSim configuration files
-
-### 📂 Resources Folder
 Inside the `Resources` folder you will find:
 - JSBSim configuration files
 
