@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<propulsion>
+	<engine file="scarab_basic_main" name="Engine_FR">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 5.96 </x>
+				<y> 6.0 </y>
+				<z> 1.2 </z>
+			</location>
+		</thruster>
+	</engine>
+
+	<engine file="scarab_basic_main" name="Engine_LR">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 5.96 </x>
+				<y> -6.0 </y>
+				<z> 1.2 </z>
+			</location>
+		</thruster>
+	</engine>
+
+	<!-- this fake engine -->
+	<engine file="scarab_stabilization_vtol" name="Engine_pitch_stab_Up">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 0.0 </x>
+				<y> 0.0 </y>
+				<z> -0.9 </z>
+			</location>
+			<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> 90.0 </pitch>
+				<yaw> 0.0 </yaw>
+			</orient>
+		</thruster>
+	</engine>
+	
+	<!-- this fake engine -->
+	<engine file="scarab_stabilization_vtol" name="Engine_pitch_stab_Down">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 0.0 </x>
+				<y> 0.0 </y>
+				<z> -0.9 </z>
+			</location>
+			<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> -90.0 </pitch>
+				<yaw> 0.0 </yaw>
+			</orient>
+		</thruster>
+	</engine>
+
+	<tank type="FUEL" number="0" name="TANK_FR">
+		<location unit="M">
+            <x> 5.96 </x>
+            <y> 1 </y>
+            <z> 2.50 </z>
+		</location>
+		<capacity unit="KG"> 500 </capacity>
+		<contents unit="KG"> 500 </contents>
+	</tank>
+	<tank type="FUEL" number="1"  name="TANK_FL">
+		<location unit="M">
+            <x> 5.96 </x>
+            <y> -1 </y>
+            <z> 2.50 </z>
+		</location>
+		<capacity unit="KG"> 500 </capacity>
+		<contents unit="KG"> 500 </contents>
+	</tank>
+</propulsion>

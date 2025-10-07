@@ -6,12 +6,19 @@ It is **not a commercial project** (yet) – just a personal playground and a pl
 
 If the community shows enough interest and votes for it, this can grow into a full game and possibly a commercial project in the future.  
 
+### 📥 Downloads
+Test builds will be uploaded to [Frontier Pilot Simulator 2](https://fps2.frontierpilot.net/).
+
+### 📂 Resources Folder
+- JSBSim configuration files
+
+=======
 ### 📂 Resources Folder
 Inside the `Resources` folder you will find:
 - JSBSim configuration files
 
 ### 📥 Downloads
-Test builds will be uploaded to [Releases](https://fps2.frontierpilot.net/).
+Test builds will be uploaded to [Frontier Pilot Simulator 2](https://fps2.frontierpilot.net/).
 
 ### 🐞 Report a Bug
 Use the [Bug Report template](https://github.com/FrontierPilot/Frontier-Pilot-Simulator-2-JSBSim/issues/new?assignees=&labels=bug&template=bug_report.md).

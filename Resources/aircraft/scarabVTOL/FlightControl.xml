@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<flight_control name="FCS: Scarab VTOL Stabilization">
+  <!-- Enable(1)/Disable(0) VTOL Stabilization -->
+  <property value="1.0">fcs/EnableVTOLStabilization</property>
+  <property>fcs/inputThrottle_nd</property>
+  <property value="0.0">fcs/refPitch_rad</property>
+  <property value="0.0">fcs/refRoll_rad</property>
+
+  <property>fcs/control_is_saturated</property>
+  <property>fcs/refRoll_rps</property>
+  <property>fcs/errRoll_rps</property>
+  <property>fcs/errRoll_rad</property>
+  <property>fcs/refRoll_rps_from_angle_error</property>
+  <property>fcs/refPitch_rps</property>
+  <property>fcs/errPitch_rps</property>
+  <property>fcs/errPitch_rad</property>
+  <property>fcs/refPitch_rps_from_angle_error</property>
+
+  <channel name="Engine_Saturation_Calculator">
+    <switch name="fcs/control_is_saturated">
+      <default value="0" />
+      <test logic="OR" value="1">
+        fcs/throttle-cmd-norm[0] le 0.05
+        fcs/throttle-cmd-norm[0] ge 0.95
+        fcs/throttle-cmd-norm[1] le 0.05
+        fcs/throttle-cmd-norm[1] ge 0.95
+        fcs/throttle-cmd-norm[2] le 0.05
+        fcs/throttle-cmd-norm[2] ge 0.95
+        fcs/throttle-cmd-norm[3] le 0.05
+        fcs/throttle-cmd-norm[3] ge 0.95
+      </test>
+      <output>fcs/control_is_saturated</output>
+    </switch>
+  </channel>
+
+ 
+  <channel name="OuterLoop-Angles">
+    <summer name="roll_angle_error_summer">
+      <input>fcs/refRoll_rad</input>
+      <input>-attitude/phi-rad</input>
+      <output>fcs/errRoll_rad</output>
+    </summer>
+    <pid name="roll_angle_to_rate_pid">
+      <input>fcs/errRoll_rad</input>
+      <kp>1.2</kp>
+      <output>fcs/refRoll_rps_from_angle_error</output>
+    </pid>
+    <summer name="pitch_angle_error_summer">
+      <input>fcs/refPitch_rad</input>
+      <input>-attitude/pitch-rad</input>
+      <output>fcs/errPitch_rad</output>
+    </summer>
+    <pid name="pitch_angle_to_rate_pid">
+      <input>fcs/errPitch_rad</input>
+      <kp>1.2</kp> 
+      <output>fcs/refPitch_rps_from_angle_error</output>
+    </pid>
+  </channel>
+
+ 
+  <channel name="InnerLoop-Rates">
+    <summer name="pitch_error_summer">
+      <input>fcs/refPitch_rps_from_angle_error</input>
+      <input>-velocities/qi-rad_sec</input>
+      <output>fcs/errPitch_rps</output>
+    </summer>
+    <pid name="pitch_rate_pid">
+      <input>fcs/errPitch_rps</input>
+      <kp>3.0</kp>
+      <ki>0.1</ki>
+      <kd>0.0</kd>
+      <gain>fcs/EnableVTOLStabilization</gain>
+      <trigger>fcs/control_is_saturated</trigger>
+      <output>fcs/cmdPitch_rps</output>
+    </pid>
+
+    <summer name="roll_error_summer">
+      <input>fcs/refRoll_rps_from_angle_error</input>
+      <input>-velocities/pi-rad_sec</input>
+      <output>fcs/errRoll_rps</output>
+    </summer>
+    <pid name="roll_rate_pid">
+      <input>fcs/errRoll_rps</input>
+      <kp>3.0</kp>
+      <ki>0.09</ki>
+      <kd>0.0</kd>
+      <gain>fcs/EnableVTOLStabilization</gain>
+      <trigger>fcs/control_is_saturated</trigger>
+      <output>fcs/cmdRoll_rps</output>
+    </pid>
+  </channel>
+
+  <channel name="Control_Mixer">
+
+    <summer name="Mixer_Engine_FR">
+      <input>fcs/inputThrottle_nd</input>
+      <input>-fcs/cmdRoll_rps</input>  
+      <output>fcs/cmd_engine_FR_nd</output>
+    </summer>
+
+    <summer name="Mixer_Engine_LR">
+      <input>fcs/inputThrottle_nd</input>
+      <input>fcs/cmdRoll_rps</input>  
+      <output>fcs/cmd_engine_LR_nd</output>
+    </summer>
+
+    <summer name="Mixer_Pitch_Up">
+      <input>fcs/cmdPitch_rps</input> 
+      <output>fcs/cmd_stab_up_nd</output>
+    </summer>
+
+    <summer name="Mixer_Pitch_Down">
+      <input>-fcs/cmdPitch_rps</input> 
+      <output>fcs/cmd_stab_down_nd</output>
+    </summer>
+
+  </channel>
+
+</flight_control>

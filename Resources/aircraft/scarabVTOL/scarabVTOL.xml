@@ -10,7 +10,7 @@
     <flight_control file="FlightControl.xml" />
 
     <external_reactions>
-        <force name="UE_CollisionForce" frame="BODY">
+         <force name="UE_CollisionForce" frame="BODY">
             <location unit="IN">
                 <x>0.0</x>
                 <y>0.0</y>
@@ -25,4 +25,5 @@
             <magnitude> 0.0 </magnitude>
         </force>
     </external_reactions>
+
 </fdm_config>
