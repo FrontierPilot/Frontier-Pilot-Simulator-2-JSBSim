@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 
 <electric_engine name="scarab_stabilization_vtol">
-  <power unit="WATTS"> 500.0 </power>
+  <power unit="WATTS"> 2000.0 </power>
 </electric_engine>

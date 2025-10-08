@@ -40,6 +40,24 @@
       <output>fcs/throttle-cmd-norm[3]</output>
     </actuator>
 
+    <actuator name="Engine_yaw_stab_Right">
+      <input>fcs/cmd_stab_yaw_right_nd</input>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
+      <output>fcs/throttle-cmd-norm[4]</output> 
+    </actuator>
+
+    <actuator name="Engine_yaw_stab_Left">
+      <input>fcs/cmd_stab_yaw_left_nd</input>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
+      <output>fcs/throttle-cmd-norm[5]</output> 
+    </actuator>
+
    </channel>
 
 </system>

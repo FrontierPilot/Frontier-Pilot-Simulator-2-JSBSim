@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mass_balance>
-    <ixx unit="KG*M2"> 67435 </ixx> <!-- +30000 fake -->
-    <iyy unit="KG*M2"> 66665 </iyy> <!-- +30000 fake -->
+    <ixx unit="KG*M2"> 37435 </ixx> <!-- +00000 fake -->
+    <iyy unit="KG*M2"> 36665 </iyy> <!-- +00000 fake -->
     <izz unit="KG*M2"> 53968 </izz> <!-- +00000 fake -->
 	<ixy unit="KG*M2"> 0 </ixy>
 	<ixz unit="KG*M2"> 4252 </ixz>
