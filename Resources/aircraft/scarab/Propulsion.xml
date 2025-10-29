@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<propulsion>
+	<engine file="scarab_plane_main" name="Engine_FR">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 5.96 </x>
+				<y> 6.0 </y>
+				<z> 1.2 </z>
+			</location>
+		</thruster>
+	</engine>
+
+	<engine file="scarab_plane_main" name="Engine_LR">
+		<thruster file="direct">
+			<location unit="M">
+				<x> 5.96 </x>
+				<y> -6.0 </y>
+				<z> 1.2 </z>
+			</location>
+		</thruster>
+	</engine>
+ 
+	<tank type="FUEL" number="0" name="TANK_FR">
+		<location unit="M">
+            <x> 5.96 </x>
+            <y> 1 </y>
+            <z> 2.50 </z>
+		</location>
+		<capacity unit="KG"> 500 </capacity>
+		<contents unit="KG"> 500 </contents>
+	</tank>
+	<tank type="FUEL" number="1"  name="TANK_FL">
+		<location unit="M">
+            <x> 5.96 </x>
+            <y> -1 </y>
+            <z> 2.50 </z>
+		</location>
+		<capacity unit="KG"> 500 </capacity>
+		<contents unit="KG"> 500 </contents>
+	</tank>
+</propulsion>

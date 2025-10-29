@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<fdm_config release="Alpha" version="2.0">
+    <metrics file="Metrics.xml" />
+    <mass_balance file="Mass.xml" />
+    <ground_reactions file="Gear.xml" />
+    <propulsion file="Propulsion.xml" />
+    <aerodynamics file="Aero.xml" />
+    <flight_control file="FlightControl.xml" />
+
+</fdm_config>

@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <electric_engine name="scarab_basic_main">
   <power unit="WATTS"> 8000.0 </power>
 </electric_engine>

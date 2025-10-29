@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
-<flight_control name="FCS: Scarab VTOL Stabilization">
+<flight_control name="FCS: Scarab VTOL Auto Level">
   <property>fcs/inputThrottle_nd</property>
 
-  <!-- Roll Stabilization -->
-  <property value="1.0">fcs/StabRoll</property>
+  <!-- Roll Auto Level -->
   <property value="0.0">fcs/refRoll_rad</property>
+  <property value="1.0">fcs/AutoLevelRoll</property>
   <property>fcs/refRoll_rps</property>
   <property>fcs/errRoll_rps</property>
   <property>fcs/errRoll_rad</property>
   <property>fcs/refRoll_rps_from_angle_error</property>
 
-  <!-- Pitch Stabilization -->
+  <!-- Pitch Auto Level -->
   <property value="0.0">fcs/refPitch_rad</property>
-  <property value="1.0">fcs/StabPitch</property>
+  <property value="1.0">fcs/AutoLevelPitch</property>
   <property>fcs/refPitch_rps</property>
   <property>fcs/errPitch_rps</property>
   <property>fcs/errPitch_rad</property>
   <property>fcs/refPitch_rps_from_angle_error</property>
   
-  <!-- Yaw Stabilization -->
-  <property value="1.0">fcs/StabYaw</property>
+  <!-- Yaw Auto Level -->
   <property value="0.0">fcs/refYaw_rad</property>
+  <property value="1.0">fcs/AutoLevelYaw</property>
   <property>fcs/errYaw_rps</property>
   <property>fcs/cmdYaw_rps</property>
 
@@ -41,6 +41,7 @@
       <input>-attitude/pitch-rad</input>
       <output>fcs/errPitch_rad</output>
     </summer>
+
     <pid name="pitch_angle_to_rate_pid">
       <input>fcs/errPitch_rad</input>
       <kp>1.2</kp>
@@ -59,7 +60,7 @@
 
     <pure_gain>
       <input>fcs/errRoll_rps</input>
-      <gain>fcs/StabRoll</gain>
+      <gain>fcs/AutoLevelRoll</gain>
       <output>fcs/errRoll_rps</output>
     </pure_gain>
 
@@ -79,7 +80,7 @@
 
     <pure_gain>
       <input>fcs/errPitch_rps</input>
-      <gain>fcs/StabPitch</gain>
+      <gain>fcs/AutoLevelPitch</gain>
       <output>fcs/errPitch_rps</output>
     </pure_gain>
 
@@ -99,7 +100,7 @@
 
     <pure_gain>
       <input>fcs/errYaw_rps</input>
-      <gain>fcs/StabYaw</gain>
+      <gain>fcs/AutoLevelYaw</gain>
       <output>fcs/errYaw_rps</output>
     </pure_gain>
     
