@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <ground_reactions>
-
 	<contact type="BOGEY" name="Gear_FL">
 		<location unit="M">
 			<x> 3.00 </x>

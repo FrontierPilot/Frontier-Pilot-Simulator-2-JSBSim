@@ -1,136 +1,113 @@
 <?xml version="1.0" ?>
 
-   <aerodynamics>
+<aerodynamics>
+   
+<function name="aero/function/kCLge">																									
+	<description>Change_in_lift_due_to_ground_effect</description>																								
+	<table>																								
+		<independentVar>aero/h_b-mac-ft</independentVar>																							
+		<tableData>																							
+			0.0000	1.2000																					
+			0.5000	1.1000																					
+			0.7500	1.0500																					
+			1.0000	1.0000																					
+		</tableData>																							
+	</table>																								
+</function>																									
+<axis name="DRAG">																									
+	<function name="aero/coefficient/CDo">																								
+		<description>Drag_at_zero_lift</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<value>	0.04269	</value>																				
+		</product>																							
+	</function>																								
+	<function name="aero/coefficient/CDalpha">																								
+		<description>Drag_due_to_alpha</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<table>																						
+				<independentVar>aero/alpha-rad</independentVar>																					
+				<tableData>																					
+					-0.0900	0.00447																			
+					0.0000	0.00578																			
+					0.1400	0.09613																			
+					0.2100	0.14484																			
+					0.2400	0.16940																			
+					0.2600	0.19160																			
+					0.2800	0.19858																			
+					0.3000	0.18948																			
+					0.3200	0.17622																			
+					0.3400	0.15568																			
+					0.3600	0.08694																			
+				</tableData>																					
+			</table>																						
+		</product>																							
+	</function>																								
+	<function name="aero/coefficient/CDbeta">																								
+		<description>Drag_due_to_sideslip</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<property>aero/mag-beta-rad</property>																						
+			<value>	0.17143	</value>																				
+		</product>																							
+	</function>																								
+	<function name="aero/coefficient/CDDf">																								
+		<description>Drag_due_to_flap_deflection</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<table>																						
+				<independentVar lookup="row">aero/alpha-rad</independentVar>																					
+				<independentVar lookup="column">fcs/flap-pos-deg</independentVar>																					
+				<tableData>																					
+						0.0000	10.0000	20.0000	30.0000																
+					-0.0873	0.0000	0.0030	0.0084	0.0153																
+					-0.0698	0.0000	0.0061	0.0131	0.0208																
+					-0.0524	0.0000	0.0092	0.0178	0.0263																
+					-0.0349	0.0000	0.0124	0.0225	0.0317																
+					-0.0175	0.0000	0.0155	0.0272	0.0372																
+					0.0000	0.0000	0.0186	0.0319	0.0427																
+					0.0175	0.0000	0.0218	0.0367	0.0483																
+					0.0349	0.0000	0.0250	0.0415	0.0539																
+					0.0524	0.0000	0.0282	0.0463	0.0594																
+					0.0698	0.0000	0.0314	0.0511	0.0650																
+					0.0873	0.0000	0.0346	0.0558	0.0706																
+					0.1047	0.0000	0.0378	0.0606	0.0762																
+					0.1222	0.0000	0.0409	0.0654	0.0818																
+					0.1396	0.0000	0.0441	0.0702	0.0873																
+					0.1571	0.0000	0.0461	0.0731	0.0907																
+					0.1745	0.0000	0.0480	0.0760	0.0941																
+					0.1920	0.0000	0.0499	0.0789	0.0975																
+					0.2094	0.0000	0.0518	0.0818	0.1008																
+					0.2269	0.0000	0.0538	0.0847	0.1043																
+					0.2443	0.0000	0.0559	0.0879	0.1080																
+					0.2618	0.0000	0.0582	0.0913	0.1120																
+					0.2793	0.0000	0.0590	0.0925	0.1133																
+					0.2967	0.0000	0.0581	0.0911	0.1117																
+					0.3142	0.0000	0.0567	0.0890	0.1093																
+					0.3316	0.0000	0.0546	0.0859	0.1056																
+					0.3491	0.0000	0.0485	0.0767	0.0950																
+				</tableData>																					
+			</table>																						
+		</product>																							
+	</function>																								
+	<function name="aero/coefficient/CDDe">																								
+		<description>Drag_due_to_Elevator_Deflection</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<property>fcs/mag-elevator-pos-rad</property>																						
+			<value>	0.04703	</value>																				
+		</product>																							
+	</function>																								
+</axis>																																																				
 
-        <function name="aero/function/kCLge">
-            <description>Change_in_lift_due_to_ground_effect</description>
-            <table>
-                <independentVar>aero/h_b-mac-ft</independentVar>
-                <tableData>
-                    0.0000	1.2030
-                    0.1000	1.1270
-                    0.1500	1.0900
-                    0.2000	1.0730
-                    0.3000	1.0460
-                    0.4000	1.0550
-                    0.5000	1.0190
-                    0.6000	1.0130
-                    0.7000	1.0080
-                    0.8000	1.0060
-                    0.9000	1.0030
-                    1.0000	1.0020
-                    1.1000	1.0000
-                </tableData>
-            </table>
-        </function>
 
-        <axis name="DRAG">
-            <function name="aero/coefficient/CDo">
-                <description>Drag_at_zero_lift</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <value>0.27</value>
-                </product>
-            </function>
-            <function name="aero/coefficient/CDalpha">
-                <description>Drag_due_to_alpha</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                      <table>
-                          <independentVar>aero/alpha-rad</independentVar>
-                          <tableData>
--0.0873	0.0123
--0.0698	0.0039
--0.0524	0.0003
--0.0349	0.0009
--0.0175	0.006
-0	0.0156
-0.0175	0.0297
-0.0349	0.0486
-0.0524	0.072
-0.0698	0.1002
-0.0873	0.1326
-0.1047	0.1698
-0.1222	0.2118
-0.1396	0.258
-0.1571	0.2886
-0.1745	0.3207
-0.192	0.354
-0.2094	0.3894
-0.2269	0.4272
-0.2443	0.4695
-0.2618	0.5181
-0.2793	0.5346
-0.2967	0.5148
-0.3142	0.4854
-0.3316	0.4425
-0.3491	0.3291
-                          </tableData>
-                      </table>
-                </product>
-            </function>
-            <function name="aero/coefficient/CDbeta">
-                <description>Drag_due_to_sideslip</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <property>aero/mag-beta-rad</property>
-                    <value>0.1700</value>
-                </product>
-            </function>
-            <function name="aero/coefficient/CDDf">
-                <description>Drag_due_to_flap_deflection</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                      <table>
-                          <independentVar lookup="row">aero/alpha-rad</independentVar>
-                          <independentVar lookup="column">fcs/flap-pos-deg</independentVar>
-                          <tableData>
-                                0.0000	10.0000	20.0000	30.0000
-                              -0.0873	0.0000	0.0030	0.0084	0.0153
-                              -0.0698	0.0000	0.0061	0.0131	0.0208
-                              -0.0524	0.0000	0.0092	0.0178	0.0263
-                              -0.0349	0.0000	0.0124	0.0225	0.0317
-                              -0.0175	0.0000	0.0155	0.0272	0.0372
-                              0.0000	0.0000	0.0186	0.0319	0.0427
-                              0.0175	0.0000	0.0218	0.0367	0.0483
-                              0.0349	0.0000	0.0250	0.0415	0.0539
-                              0.0524	0.0000	0.0282	0.0463	0.0594
-                              0.0698	0.0000	0.0314	0.0511	0.0650
-                              0.0873	0.0000	0.0346	0.0558	0.0706
-                              0.1047	0.0000	0.0378	0.0606	0.0762
-                              0.1222	0.0000	0.0409	0.0654	0.0818
-                              0.1396	0.0000	0.0441	0.0702	0.0873
-                              0.1571	0.0000	0.0461	0.0731	0.0907
-                              0.1745	0.0000	0.0480	0.0760	0.0941
-                              0.1920	0.0000	0.0499	0.0789	0.0975
-                              0.2094	0.0000	0.0518	0.0818	0.1008
-                              0.2269	0.0000	0.0538	0.0847	0.1043
-                              0.2443	0.0000	0.0559	0.0879	0.1080
-                              0.2618	0.0000	0.0582	0.0913	0.1120
-                              0.2793	0.0000	0.0590	0.0925	0.1133
-                              0.2967	0.0000	0.0581	0.0911	0.1117
-                              0.3142	0.0000	0.0567	0.0890	0.1093
-                              0.3316	0.0000	0.0546	0.0859	0.1056
-                              0.3491	0.0000	0.0485	0.0767	0.0950
-                          </tableData>
-                      </table>
-                </product>
-            </function>
-            <function name="aero/coefficient/CDDe">
-                <description>Drag_due_to_Elevator_Deflection</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <property>fcs/mag-elevator-pos-rad</property>
-                    <value>0.06</value>
-                </product>
-            </function>
-        </axis>
-
+																					
         <axis name="SIDE">
             <function name="aero/coefficient/CYb">
                 <description>Side_force_due_to_beta</description>

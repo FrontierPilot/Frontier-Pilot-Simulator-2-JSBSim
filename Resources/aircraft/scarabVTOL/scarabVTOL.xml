@@ -1,10 +1,47 @@
 <?xml version="1.0"?>
 <fdm_config release="Alpha" version="2.0">
-    <metrics file="Metrics.xml" />
-    <mass_balance file="Mass.xml" />
+<metrics>																									
+	<wingarea unit="M2">				31.36	</wingarea>																			
+	<wingspan unit="M">				14.00	</wingspan>																			
+	<chord unit="M">				2.80	</chord>																			
+	<htailarea unit="M2">				5.90	</htailarea>																			
+	<htailarm unit="M">				8.70	</htailarm>																			
+	<vtailarea unit="M2">				4.40	</vtailarea>																			
+	<vtailarm unit="M">				8.70	</vtailarm>																			
+	<location name="AERORP" unit="M">																								
+		<x>	6.85	</x>																					
+		<y>	0.00	</y>																					
+		<z>	4.00	</z>																					
+	</location>																								
+	<location name="EYEPOINT" unit="M">																								
+		<x>	2.00	</x>																					
+		<y>	0.00	</y>																					
+		<z>	2.00	</z>																					
+	</location>																								
+	<location name="VRP" unit="M">																								
+		<x>	6.80	</x>																					
+		<y>	0.00	</y>																					
+		<z>	1.50	</z>																					
+	</location>																								
+</metrics>																									
+<mass_balance>																									
+	<ixx unit="KG*M2">				44255	</ixx>																			
+	<iyy unit="KG*M2">				37472	</iyy>																			
+	<izz unit="KG*M2">				60494	</izz>																			
+	<ixy unit="KG*M2">				0	</ixy>																			
+	<ixz unit="KG*M2">				4252	</ixz>																			
+	<iyz unit="KG*M2"> 				0	</iyz>																			
+	<emptywt unit="KG">				3530	</emptywt>																			
+	<location name="CG" unit="M">																								
+		<x>	5.96	</x>																					
+		<y>	0.00	</y>																					
+		<z>	0.51	</z>																					
+	</location>																								
+</mass_balance>																									
+
     <ground_reactions file="Gear.xml" />
     <propulsion file="Propulsion.xml" />
-    <aerodynamics file="AeroEmpty.xml" />
+    <aerodynamics file="Aero.xml" />
 
     <system file="Effectors.xml" /> 
     <flight_control file="FlightControl.xml" />

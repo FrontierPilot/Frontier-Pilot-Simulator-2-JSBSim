@@ -1,28 +1,15 @@
 <?xml version="1.0"?>
-<mass_balance>
-
-        <ixx unit="SLUG*FT2"> 948 </ixx>
-        <iyy unit="SLUG*FT2"> 1346 </iyy>
-        <izz unit="SLUG*FT2"> 1967 </izz>
-        <ixy unit="SLUG*FT2"> -0 </ixy>
-        <ixz unit="SLUG*FT2"> -0 </ixz>
-        <iyz unit="SLUG*FT2"> -0 </iyz>
-		<emptywt unit="LBS"> 1500 </emptywt>
-
-<!--			
-
-
-    <ixx unit="KG*M2"> 37435 </ixx>
-    <iyy unit="KG*M2"> 36665 </iyy>
-    <izz unit="KG*M2"> 53968 </izz>
-	<ixy unit="KG*M2"> 0 </ixy>
-	<ixz unit="KG*M2"> 4252 </ixz>
-	<iyz unit="KG*M2"> 0 </iyz>
-	<emptywt unit="KG"> 3530   </emptywt>
--->
-	<location name="CG" unit="M">
-		<x> 5.96 </x>
-		<y> 0.0 </y>
-		<z> 0.51 </z>
-	</location>
-</mass_balance>
+<mass_balance>																									
+	<ixx unit="KG*M2">				37435	</ixx>																			
+	<iyy unit="KG*M2">				36665	</iyy>																			
+	<izz unit="KG*M2">				53968	</izz>																			
+	<ixy unit="KG*M2">				0	</ixy>																			
+	<ixz unit="KG*M2">				4252	</ixz>																			
+	<iyz unit="KG*M2"> 				0	</iyz>																			
+	<emptywt unit="KG"> 				3530	</emptywt>																			
+	<location name="CG" unit="M">																								
+		<x> 	5.96	</x>																					
+		<y> 	0.00	</y>																					
+		<z> 	0.51	</z>																					
+	</location>																								
+</mass_balance>																									

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <propulsion>
-	<engine file="scarab_plane_main" name="Engine_FR">
+	<engine file="scarab_basic_main" name="Engine_FR">
 		<thruster file="direct">
 			<location unit="M">
 				<x> 5.96 </x>
@@ -10,7 +10,7 @@
 		</thruster>
 	</engine>
 
-	<engine file="scarab_plane_main" name="Engine_LR">
+	<engine file="scarab_basic_main" name="Engine_LR">
 		<thruster file="direct">
 			<location unit="M">
 				<x> 5.96 </x>
