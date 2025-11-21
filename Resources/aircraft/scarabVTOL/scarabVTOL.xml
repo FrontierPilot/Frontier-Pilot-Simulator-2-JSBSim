@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<fdm_config release="Alpha" version="2.0">
+<?xml version="1.0"?>																									
+<fdm_config release="Alpha" version="2.0">																									
 <metrics>																									
 	<wingarea unit="M2">				31.36	</wingarea>																			
 	<wingspan unit="M">				14.00	</wingspan>																			
@@ -11,7 +11,7 @@
 	<location name="AERORP" unit="M">																								
 		<x>	6.85	</x>																					
 		<y>	0.00	</y>																					
-		<z>	4.00	</z>																					
+		<z>	3.50	</z>																					
 	</location>																								
 	<location name="EYEPOINT" unit="M">																								
 		<x>	2.00	</x>																					
@@ -38,29 +38,11 @@
 		<z>	0.51	</z>																					
 	</location>																								
 </mass_balance>																									
-
-    <ground_reactions file="Gear.xml" />
-    <propulsion file="Propulsion.xml" />
-    <aerodynamics file="Aero.xml" />
-
-    <system file="Effectors.xml" /> 
-    <flight_control file="FlightControl.xml" />
-
-    <external_reactions>
-         <force name="UE_CollisionForce" frame="BODY">
-            <location unit="IN">
-                <x>0.0</x>
-                <y>0.0</y>
-                <z>0.0</z>
-            </location>
-            <!-- The direction describes a unit vector.-->
-            <direction>
-                <x>0.0</x>
-                <y>0.0</y>
-                <z>0.0</z>
-            </direction>
-            <magnitude> 0.0 </magnitude>
-        </force>
-    </external_reactions>
-
-</fdm_config>
+																									
+																									
+<ground_reactions file="Gear.xml" />																									
+<propulsion file="Propulsion.xml" />																									
+<aerodynamics file="Aero.xml" />																									
+<flight_control file="FlightControl.xml" />																									
+																									
+</fdm_config>																									
