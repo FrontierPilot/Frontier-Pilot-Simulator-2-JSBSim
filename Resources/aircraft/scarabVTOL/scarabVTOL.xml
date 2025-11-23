@@ -40,9 +40,9 @@
 </mass_balance>																									
 																									
 																									
-<ground_reactions file="Gear.xml" />																									
-<propulsion file="Propulsion.xml" />																									
-<aerodynamics file="Aero.xml" />																									
-<flight_control file="FlightControl.xml" />																									
-																									
+	<ground_reactions file="Gear.xml" />
+	<propulsion file="Propulsion.xml" />
+	<aerodynamics file="Aero.xml" />
+	<flight_control file="FlightControl.xml" />
+    <system file="Effectors.xml" /> 
 </fdm_config>																									
