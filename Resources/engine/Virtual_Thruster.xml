@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<propeller name="Virtual_Thruster">
+  <ixx> 0.01 </ixx>
+  <diameter unit="M"> 1.0 </diameter>
+  <numblades> 3 </numblades>
+  <gearratio> 1.0 </gearratio>
+
+  <table name="C_THRUST" type="internal">
+      <independentVar>aero/advance-ratio</independentVar>
+      <tableData>
+          0.0   0.100 
+          1.0   0.080  
+          2.0   0.050
+          3.0   0.000 
+      </tableData>
+  </table>
+
+  <table name="C_POWER" type="internal">
+      <independentVar>aero/advance-ratio</independentVar>
+      <tableData>
+          0.0   0.050
+          3.0   0.050
+      </tableData>
+  </table>
+  
+  <thrust_coefficient> 0.100 </thrust_coefficient> 
+</propeller>

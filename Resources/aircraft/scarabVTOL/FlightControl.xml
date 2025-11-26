@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <flight_control name="FCS: Scarab VTOL Auto Level">
-  <property>fcs/inputThrottle_nd</property>
+  <property value="0.0">fcs/inputThrottle_nd</property>
 
   <!-- Roll Auto Level -->
   <property value="0.0">fcs/refRoll_rad</property>
@@ -66,7 +66,7 @@
 
     <pid name="roll_rate_pid">
       <input>fcs/errRoll_rps</input>
-      <kp>3.0</kp>
+      <kp>1.3</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdRoll_rps</output>
@@ -86,7 +86,7 @@
 
     <pid name="pitch_rate_pid">
       <input>fcs/errPitch_rps</input>
-      <kp>3.0</kp>
+      <kp>1.3</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdPitch_rps</output>
@@ -106,7 +106,7 @@
     
     <pid name="yaw_rate_pid">
       <input>fcs/errYaw_rps</input>
-      <kp>3.0</kp>
+      <kp>1.3</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdYaw_rps</output> 

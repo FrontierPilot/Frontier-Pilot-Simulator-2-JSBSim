@@ -9,7 +9,7 @@
 	<vtailarea unit="M2">				4.40	</vtailarea>																			
 	<vtailarm unit="M">				8.70	</vtailarm>																			
 	<location name="AERORP" unit="M">																								
-		<x>	6.85	</x>																					
+		<x>	6.40	</x>																					
 		<y>	0.00	</y>																					
 		<z>	3.50	</z>																					
 	</location>																								
@@ -40,9 +40,9 @@
 </mass_balance>																									
 																									
 																									
-	<ground_reactions file="Gear.xml" />
-	<propulsion file="Propulsion.xml" />
-	<aerodynamics file="Aero.xml" />
-	<flight_control file="FlightControl.xml" />
-    <system file="Effectors.xml" /> 
+<ground_reactions file="Gear.xml" />																									
+<propulsion file="Propulsion.xml" />																									
+<aerodynamics file="Aero.xml" />																									
+<flight_control file="FlightControl.xml" />																									
+<system file="Effectors.xml" /> 																									
 </fdm_config>																									

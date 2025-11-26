@@ -102,6 +102,15 @@
 			<value>	0.04703	</value>																				
 		</product>																							
 	</function>																								
+	<function name="aero/coefficient/CDsb">																								
+		<description>Drag coefficient due to speedbrake</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<property>fcs/speedbrake-pos-norm</property>																						
+			<value>	0.18617	</value>																				
+		</product>																							
+	</function>																								
 </axis>																									
 																									
 <axis name="LIFT">																									
@@ -111,7 +120,7 @@
 			<property>aero/qbar-psf</property>																						
 			<property>metrics/Sw-sqft</property>																						
 			<property>aero/function/kCLge</property>																						
-			<value>	0.31420	</value>																				
+			<value>	0.48000	</value>																				
 		</product>																							
 	</function>																								
 	<function name="aero/coefficient/CLalpha">																								
@@ -148,9 +157,9 @@
 				<independentVar>fcs/flap-pos-deg</independentVar>																					
 				<tableData>																					
 					0.0000	0.0000																			
-					10.0000	0.2000																			
-					20.0000	0.3000																			
-					30.0000	0.3500																			
+					10.0000	0.4000																			
+					20.0000	0.8400																			
+					30.0000	1.2900																			
 				</tableData>																					
 			</table>																						
 		</product>																							
@@ -182,6 +191,15 @@
 			<property>metrics/Sw-sqft</property>																						
 			<property>fcs/elevator-pos-rad</property>																						
 			<value>	0.41541	</value>																				
+		</product>																							
+	</function>																								
+	<function name="aero/coefficient/dCLsb">																								
+		<description>Change in lift due to speedbrake (Spoiler Effect)</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<property>fcs/speedbrake-pos-norm</property>																						
+			<value>	-0.08906	</value>																				
 		</product>																							
 	</function>																								
 </axis>																									
@@ -322,7 +340,7 @@
 			<property>metrics/Sw-sqft</property>																						
 			<property>metrics/cbarw-ft</property>																						
 			<property>aero/alpha-rad</property>																						
-			<value>	-1.45395	</value>																				
+			<value>	-0.71467	</value>																				
 		</product>																							
 	</function>																								
 	<function name="aero/coefficient/Cmadot">																								
@@ -374,6 +392,16 @@
 			<value>	-1.29073	 </value>																				
 		</product>																							
 	</function>																								
+	<function name="aero/coefficient/Cmsb">																								
+		<description>Pitch moment due to speedbrake</description>																							
+		<product>																							
+			<property>aero/qbar-psf</property>																						
+			<property>metrics/Sw-sqft</property>																						
+			<property>metrics/cbarw-ft</property>																						
+			<property>fcs/speedbrake-pos-norm</property>																						
+			<value>	0.30099	 </value>																				
+		</product>																							
+	</function>																								
 </axis>																									
 																									
 <axis name="YAW">																									
@@ -398,8 +426,8 @@
 			<table>																						
 				<independentVar>aero/alpha-rad</independentVar>																					
 				<tableData>																					
-					0.0000	-0.0393																			
-					0.0943	-0.0935																			
+					0.0000	-0.0600																			
+					0.0943	-0.1142																			
 				</tableData>																					
 			</table>																						
 		</product>																							
@@ -425,8 +453,8 @@
 			<table>																						
 				<independentVar>aero/alpha-rad</independentVar>																					
 				<tableData>																					
-					0.0000	-0.0071																			
-					0.0943	-0.0169																			
+					0.0000	-0.0109																			
+					0.0943	-0.0207																			
 				</tableData>																					
 			</table>																						
 		</product>																							

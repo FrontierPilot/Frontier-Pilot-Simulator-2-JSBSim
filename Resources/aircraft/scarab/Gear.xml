@@ -28,7 +28,7 @@
 	</contact>
 	<contact type="BOGEY" name="Gear_TL">
 		<location unit="M">
-			<x> 8.5 </x>
+			<x> 7.2 </x>
 			<y> -1.8 </y>
 			<z> -3.5 </z> 
 		</location>
@@ -41,7 +41,7 @@
 	</contact>
 	<contact type="BOGEY" name="Gear_TR">
 		<location unit="M">
-			<x> 8.5 </x>
+			<x> 7.2 </x>
 			<y> 1.8 </y>
 			<z> -3.5 </z> 
 		</location>
