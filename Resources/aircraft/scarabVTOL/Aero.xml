@@ -1,5 +1,121 @@
-<?xml version="1.0" ?>
-
- <aerodynamics>
-
- </aerodynamics>
+<?xml version="1.0" ?>																										
+<aerodynamics>																										
+																										
+<axis name="Z">																										
+	<function name="aero/force/Z_vertical_drag">																									
+		<description>Vertical air resistance (Body-Z)</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/w-aero-fps</property>																							
+			<abs>																							
+				<property>velocities/w-aero-fps</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<value>	-1.4114	</value>																					
+		</product>																								
+	</function>																									
+	<function name="aero/table/vtol_cushion_factor">																									
+		<description>Cushion decay: Extended to 3.0 MAC for smoother feel</description>																								
+		<table>																								
+			<independentVar>aero/h_b-mac-ft</independentVar>																							
+			<tableData>																							
+				0.00	1.00																					
+				0.50	0.60																					
+				1.50	0.20																					
+				3.00	0.00																					
+			</tableData>																							
+		</table>																								
+	</function>																									
+	<function name="aero/force/Z_ground_cushion">																									
+		<description>Vertical thrust-born cushion force (Body-Z Up)</description>																								
+		<product>																								
+			<sum>																							
+				<property>propulsion/engine[0]/thrust-lbs</property>																						
+				<property>propulsion/engine[1]/thrust-lbs</property>																						
+			</sum>																							
+			<value>	-0.50	</value>			<!-- DESIGNER TOOL: Expose to external property for real-time game design tuning. -->																		
+			<property>aero/table/vtol_cushion_factor</property>																							
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+<axis name="Y">																										
+	<function name="aero/force/Y_side_drag">																									
+		<description>Lateral aerodynamic resistance (Damping)</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/v-aero-fps</property>																							
+			<abs>																							
+				<property>velocities/v-aero-fps</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<value>	-0.7984	</value>																					
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+<axis name="X">																										
+	<function name="aero/force/X_drag">																									
+		<description>Axial damping (Forward/Backward resistance)</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/u-aero-fps</property>																							
+			<abs>																							
+				<property>velocities/u-aero-fps</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<value>	-0.2571	</value>																					
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+<axis name="PITCH">																										
+	<function name="aero/moment/Pitch_damping">																									
+		<description>Pitch damping (Resistance to rotation) based on tail leverage</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/q-aero-rad_sec</property>																							
+			<abs>																							
+				<property>velocities/q-aero-rad_sec</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<property>metrics/cbarw-ft</property>																							
+			<value>	-278.5378	</value>	<!-- imperial system -->																				
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+<axis name="YAW">																										
+	<function name="aero/moment/Yaw_damping">																									
+		 <description>Yaw damping (Resistance to r-rotation) in Body-Z</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/r-aero-rad_sec</property>																							
+			<abs>																							
+				<property>velocities/r-aero-rad_sec</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<property>metrics/bw-ft</property>																							
+			<value>	-41.5430	</value>	<!-- imperial system -->																				
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+<axis name="ROLL">																										
+	<function name="aero/moment/Roll_damping">																									
+		<description>Roll damping (Resistance to p-rotation) in Body-X</description>																								
+		<product>																								
+			<property>atmosphere/rho-slugs_ft3</property>																							
+			<property>velocities/p-aero-rad_sec</property>																							
+			<abs>																							
+				<property>velocities/p-aero-rad_sec</property>																						
+			</abs>																							
+			<property>metrics/Sw-sqft</property>																							
+			<property>metrics/bw-ft</property>																							
+			<value>	-66.0555	</value>	<!-- imperial system -->																				
+		</product>																								
+	</function>																									
+</axis>																										
+																										
+																										
+</aerodynamics>																										
