@@ -9,9 +9,9 @@
 	<vtailarea unit="M2">				4.40	</vtailarea>																			
 	<vtailarm unit="M">				8.70	</vtailarm>																			
 	<location name="AERORP" unit="M">																								
-		<x>	6.40	</x>																					
+		<x>	6.11	</x>																					
 		<y>	0.00	</y>																					
-		<z>	0.55	</z>																					
+		<z>	0.54	</z>																					
 	</location>																								
 	<location name="EYEPOINT" unit="M">																								
 		<x>	2.00	</x>																					
