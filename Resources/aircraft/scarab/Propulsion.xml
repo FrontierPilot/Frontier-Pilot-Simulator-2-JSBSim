@@ -5,7 +5,7 @@
 			<location unit="M">
 				<x> 5.96 </x>
 				<y> 6.0 </y>
-				<z> 1.2 </z>
+				<z> 0.90 </z>
 			</location>
 		</thruster>
 	</engine>
@@ -15,7 +15,7 @@
 			<location unit="M">
 				<x> 5.96 </x>
 				<y> -6.0 </y>
-				<z> 1.2 </z>
+				<z> 0.90 </z>
 			</location>
 		</thruster>
 	</engine>

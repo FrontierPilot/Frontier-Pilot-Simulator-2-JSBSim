@@ -18,25 +18,6 @@
             </kinematic>
     </channel>
 
-    <system name="Flaps Control">
-        <channel name="Flaps">
-            <kinematic name="Flaps Control">
-                <input>fcs/flap-cmd-norm</input>
-                <traverse>
-                    <setting>
-                        <position>0</position>
-                        <time>0</time>
-                    </setting>
-                    <setting>
-                        <position>30</position>
-                        <time>0.8</time> 
-                    </setting>
-                </traverse>
-                <output>fcs/flap-pos-deg</output>
-            </kinematic>
-        </channel>
-    </system>
-
     <channel name="Pitch">
         <summer name="Pitch Trim Sum">
             <input>fcs/elevator-cmd-norm</input>

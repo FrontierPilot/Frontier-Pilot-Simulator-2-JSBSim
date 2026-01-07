@@ -9,9 +9,9 @@
 	<vtailarea unit="M2">				4.40	</vtailarea>																			
 	<vtailarm unit="M">				8.70	</vtailarm>																			
 	<location name="AERORP" unit="M">																								
-		<x>	6.11	</x>																					
+		<x>	6.29	</x>		<!-- SM	11.72%	-->																	
 		<y>	0.00	</y>																					
-		<z>	0.54	</z>																					
+		<z>	0.45	</z>																					
 	</location>																								
 	<location name="EYEPOINT" unit="M">																								
 		<x>	2.00	</x>																					
@@ -25,17 +25,17 @@
 	</location>																								
 </metrics>																									
 <mass_balance>																									
-	<ixx unit="KG*M2">				44255	</ixx>																			
-	<iyy unit="KG*M2">				37472	</iyy>																			
+	<ixx unit="KG*M2">				44037	</ixx>																			
+	<iyy unit="KG*M2">				37253	</iyy>																			
 	<izz unit="KG*M2">				60494	</izz>																			
 	<ixy unit="KG*M2">				0	</ixy>																			
-	<ixz unit="KG*M2">				4252	</ixz>																			
+	<ixz unit="KG*M2">				4253	</ixz>																			
 	<iyz unit="KG*M2"> 				0	</iyz>																			
 	<emptywt unit="KG">				3530	</emptywt>																			
 	<location name="CG" unit="M">																								
 		<x>	5.96	</x>																					
 		<y>	0.00	</y>																					
-		<z>	0.51	</z>																					
+		<z>	0.45	</z>																					
 	</location>																								
 </mass_balance>																									
 																									
