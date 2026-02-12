@@ -1,0 +1,220 @@
+{
+	"version": 3,
+	"profileName": "X52_H_O_T_A_S",
+	"actions": [
+		{
+			"actionName": "Modifier_LB",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": -1,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Modifier_RB",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": -1,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ChangeCamera",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Hat",
+					"inputIndex": 0,
+					"subIndex": "Up",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ChangeFlightMode",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 6,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Yaw",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 5,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.15",
+						"responseCurve": "Default"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Roll",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 0,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.15",
+						"responseCurve": "Default"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Pitch",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 1,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.15",
+						"responseCurve": "Default",
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "PitchTrim",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 10,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 11,
+					"subIndex": "",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Look",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Button",
+					"inputIndex": -1,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Throttle",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 2,
+					"subIndex": "",
+					"modifiers":
+					{
+						"normalizeRange": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "SpeedBrake",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 14,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Up",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 8,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Down",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 9,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ResetAxis",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Hat",
+					"inputIndex": 0,
+					"subIndex": "Down",
+					"modifiers":
+					{
+					}
+				}
+			]
+		}
+	]
+}

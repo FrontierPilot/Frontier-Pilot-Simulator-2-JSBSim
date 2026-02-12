@@ -1,0 +1,210 @@
+{
+	"version": 3,
+	"profileName": "Keyboard",
+	"actions": [
+		{
+			"actionName": "ChangeCamera",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "Tab",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ResetAxis",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "R",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ChangeFlightMode",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "F",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Yaw",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "A",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "D",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Roll",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "Q",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "E",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Pitch",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "W",
+					"modifiers":
+					{
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "S",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "SpeedBrake",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "X",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Up",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "RightBracket",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Down",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "LeftBracket",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "PitchTrim",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "Seven",
+					"modifiers":
+					{
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "Eight",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Throttle",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "SpaceBar",
+					"modifiers":
+					{
+					}
+				},
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Key",
+					"inputIndex": 0,
+					"subIndex": "LeftShift",
+					"modifiers":
+					{
+						"invert": "true"
+					}
+				}
+			]
+		}
+	]
+}

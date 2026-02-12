@@ -1,0 +1,236 @@
+{
+	"version": 3,
+	"profileName": "PS4_Controller",
+	"actions": [
+		{
+			"actionName": "Modifier_LB",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 9,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Modifier_RB",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 10,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ChangeCamera",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 8,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ChangeFlightMode",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 2,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Yaw",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 0,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.15",
+						"responseCurve": "Default"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Roll",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 0,
+					"subIndex": "",
+					"modifiers":
+					{
+						"hardwareChord": "Modifier_LB",
+						"deadzone": "0.15",
+						"responseCurve": "Default"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Pitch",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 1,
+					"subIndex": "",
+					"modifiers":
+					{
+						"invert": "true",
+						"responseCurve": "Default"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "PitchTrim",
+			"configs": [
+				{
+					"bindingTarget": "AnalogAsDigital",
+					"inputType": "Axis",
+					"inputIndex": 1,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.20",
+						"hardwareChord": "Modifier_RB"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Look",
+			"configs": [
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 2,
+					"subIndex": "",
+					"modifiers":
+					{
+						"deadzone": "0.15"
+					}
+				},
+				{
+					"bindingTarget": "Analog",
+					"inputType": "Axis",
+					"inputIndex": 3,
+					"subIndex": "",
+					"modifiers":
+					{
+						"axisSwizzle": "YXZ",
+						"deadzone": "0.15",
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Throttle",
+			"configs": [
+				{
+					"bindingTarget": "AnalogAsDigital",
+					"inputType": "Axis",
+					"inputIndex": 5,
+					"subIndex": "",
+					"modifiers":
+					{
+						"normalizeRange": "true"
+					}
+				},
+				{
+					"bindingTarget": "AnalogAsDigital",
+					"inputType": "Axis",
+					"inputIndex": 4,
+					"subIndex": "",
+					"modifiers":
+					{
+						"normalizeRange": "true",
+						"invert": "true"
+					}
+				}
+			]
+		},
+		{
+			"actionName": "SpeedBrake",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 1,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Up",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 11,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "Flaps_Down",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 12,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		},
+		{
+			"actionName": "ResetAxis",
+			"configs": [
+				{
+					"bindingTarget": "Digital",
+					"inputType": "Button",
+					"inputIndex": 7,
+					"subIndex": "",
+					"modifiers":
+					{
+					}
+				}
+			]
+		}
+	]
+}
