@@ -24,6 +24,60 @@
   <property>fcs/errYaw_rps</property>
   <property>fcs/cmdYaw_rps</property>
 
+  <!-- Brake Control -->
+  <property>fcs/left-brake-input-norm</property>
+  <property>fcs/right-brake-input-norm</property>
+
+    <channel name="Speedbrake">
+        <kinematic name="Speedbrake Control">
+            <input>fcs/speedbrake-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position> 0.0 </position>
+                    <time> 0.0 </time>
+                </setting>
+                <setting>
+                    <position> 1.0 </position>
+                    <time> 0.6 </time>
+                </setting>
+            </traverse>
+            <output>fcs/speedbrake-pos-norm</output>
+            </kinematic>
+    </channel>
+ 
+   <channel name="Wheel Brakes">
+        <kinematic name="Left Brake Control">
+            <input>fcs/left-brake-input-norm</input>
+            <traverse>
+                <setting>
+                    <position> 0.0 </position>
+                    <time> 0.0 </time>
+                </setting>
+                <setting>
+                    <position> 1.0 </position>
+                    <time> 5.5 </time> 
+                </setting>
+            </traverse>
+            <output>fcs/left-brake-cmd-norm</output> 
+        </kinematic>
+
+        <kinematic name="Right Brake Control">
+            <input>fcs/right-brake-input-norm</input>
+            <traverse>
+                <setting>
+                    <position> 0.0 </position>
+                    <time> 0.0 </time>
+                </setting>
+                <setting>
+                    <position> 1.0 </position>
+                    <time> 5.5 </time>
+                </setting>
+            </traverse>
+            <output>fcs/right-brake-cmd-norm</output>
+        </kinematic>
+    </channel>
+  <!-- End Brake Control -->
+
   <channel name="OuterLoop-Angles">
     <summer name="roll_angle_error_summer">
       <input>fcs/refRoll_rad</input>

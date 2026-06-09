@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<electric_engine name="scarab_stabilization_vtol_pitch">
+  <power unit="WATTS"> 3200.0 </power>
+</electric_engine>

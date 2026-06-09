@@ -11,7 +11,7 @@
 				<property>velocities/w-aero-fps</property>																						
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
-			<value>	-1.4114	</value>																					
+			<value>	-1.4674	</value>																					
 		</product>																								
 	</function>																									
 	<function name="aero/table/vtol_cushion_factor">																									
@@ -49,7 +49,7 @@
 				<property>velocities/v-aero-fps</property>																						
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
-			<value>	-0.7984	</value>																					
+			<value>	-0.8544	</value>																					
 		</product>																								
 	</function>																									
 </axis>																										

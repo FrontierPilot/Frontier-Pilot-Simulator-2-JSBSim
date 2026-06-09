@@ -3,7 +3,7 @@
 	<engine file="scarab_basic_main" name="Engine_FR">
 		<thruster file="direct">
 			<location unit="M">
-				<x> 5.96 </x>
+				<x> 5.98 </x>
 				<y> 6.0 </y>
 				<z> 1.2 </z>
 			</location>
@@ -13,7 +13,7 @@
 	<engine file="scarab_basic_main" name="Engine_LR">
 		<thruster file="direct">
 			<location unit="M">
-				<x> 5.96 </x>
+				<x> 5.98 </x>
 				<y> -6.0 </y>
 				<z> 1.2 </z>
 			</location>
@@ -84,7 +84,7 @@
 	</engine>
 	<tank type="FUEL" number="0" name="TANK_FR">
 		<location unit="M">
-            <x> 5.96 </x>
+            <x> 5.98 </x>
             <y> 1 </y>
             <z> 2.50 </z>
 		</location>
@@ -93,7 +93,7 @@
 	</tank>
 	<tank type="FUEL" number="1"  name="TANK_FL">
 		<location unit="M">
-            <x> 5.96 </x>
+            <x> 5.98 </x>
             <y> -1 </y>
             <z> 2.50 </z>
 		</location>

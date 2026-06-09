@@ -9,9 +9,9 @@
 	<vtailarea unit="M2">				4.40	</vtailarea>																			
 	<vtailarm unit="M">				8.70	</vtailarm>																			
 	<location name="AERORP" unit="M">																								
-		<x>	6.29	</x>		<!-- SM	11.72%	-->																	
+		<x>	6.31	</x>		<!-- SM	11.75%	-->																	
 		<y>	0.00	</y>																					
-		<z>	0.45	</z>																					
+		<z>	0.12	</z>																					
 	</location>																								
 	<location name="EYEPOINT" unit="M">																								
 		<x>	2.00	</x>																					
@@ -19,24 +19,34 @@
 		<z>	2.00	</z>																					
 	</location>																								
 	<location name="VRP" unit="M">																								
-		<x>	6.80	</x>																					
+		<x>	6.98	</x>																					
 		<y>	0.00	</y>																					
 		<z>	1.50	</z>																					
 	</location>																								
 </metrics>																									
 <mass_balance>																									
-	<ixx unit="KG*M2">				44037	</ixx>																			
-	<iyy unit="KG*M2">				37253	</iyy>																			
-	<izz unit="KG*M2">				60494	</izz>																			
+	<ixx unit="KG*M2">				19782	</ixx>																			
+	<iyy unit="KG*M2">				38570	</iyy>																			
+	<izz unit="KG*M2">				42926	</izz>																			
 	<ixy unit="KG*M2">				0	</ixy>																			
-	<ixz unit="KG*M2">				4253	</ixz>																			
+	<ixz unit="KG*M2">				3671	</ixz>																			
 	<iyz unit="KG*M2"> 				0	</iyz>																			
-	<emptywt unit="KG">				3530	</emptywt>																			
+	<emptywt unit="KG">				2790	</emptywt>																			
 	<location name="CG" unit="M">																								
-		<x>	5.96	</x>																					
+		<x>	5.98	</x>																					
 		<y>	0.00	</y>																					
-		<z>	0.45	</z>																					
-	</location>																								
+		<z>	0.12	</z>																					
+	</location>			
+
+	<pointmass name="cargobay">
+    	<weight unit="KG"> 0 </weight>
+    	<location unit="M">
+      	<x>	5.98	</x>	
+      	<y> 0.0 </y>
+      	<z>	0.12	</z>
+    	</location>
+  	</pointmass>
+
 </mass_balance>																									
 																									
 																									
@@ -44,5 +54,15 @@
 <propulsion file="Propulsion.xml" />																									
 <aerodynamics file="Aero.xml" />																									
 <flight_control file="FlightControl.xml" />																									
-<system file="Effectors.xml" /> 																									
+<system file="Effectors.xml" /> 		
+<external_reactions>
+	<force name="UE_CollisionForce" frame="BODY">
+		<location unit="IN">
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</location>
+		<magnitude> 0.0 </magnitude>
+	</force>
+</external_reactions>																							
 </fdm_config>																									

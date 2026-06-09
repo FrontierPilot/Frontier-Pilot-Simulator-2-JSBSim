@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
 <propulsion>
-	<engine file="scarab_plane_basic" name="Engine_FR">
+	<engine file="scarab_ground_basic" name="Engine_F">
 		<thruster file="direct">
 			<location unit="M">
-				<x> 5.98 </x>
-				<y> 6.0 </y>
-				<z> 0.90 </z>
+				<x> 5.9 </x>
+				<y> 0.0 </y>
+				<z> 0.0 </z>
 			</location>
+			<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> 0.0 </pitch>
+				<yaw> 0.0 </yaw>
+			</orient>
 		</thruster>
 	</engine>
 
-	<engine file="scarab_plane_basic" name="Engine_LR">
+	<engine file="scarab_ground_basic" name="Engine_T">
 		<thruster file="direct">
 			<location unit="M">
-				<x> 5.98 </x>
-				<y> -6.0 </y>
-				<z> 0.90 </z>
+				<x> 6.0 </x>
+				<y> 0.0 </y>
+				<z> 0.0 </z>
 			</location>
+			<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> 180.0 </pitch>
+				<yaw> 0.0 </yaw>
+			</orient>
 		</thruster>
 	</engine>
  

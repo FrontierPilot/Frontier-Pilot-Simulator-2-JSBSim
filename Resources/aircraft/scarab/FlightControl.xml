@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <flight_control name="FCS: Scarab Plane">
+  <property>fcs/left-brake-input-norm</property>
+  <property>fcs/right-brake-input-norm</property>
 
     <channel name="Speedbrake">
         <kinematic name="Speedbrake Control">
@@ -17,6 +19,40 @@
             <output>fcs/speedbrake-pos-norm</output>
             </kinematic>
     </channel>
+
+   <channel name="Wheel Brakes">
+        <kinematic name="Left Brake Control">
+            <input>fcs/left-brake-input-norm</input>
+            <traverse>
+                <setting>
+                    <position> 0.0 </position>
+                    <time> 0.0 </time>
+                </setting>
+                <setting>
+                    <position> 1.0 </position>
+                    <time> 7.5 </time> 
+                </setting>
+            </traverse>
+            <output>fcs/left-brake-cmd-norm</output> 
+        </kinematic>
+
+        <kinematic name="Right Brake Control">
+            <input>fcs/right-brake-input-norm</input>
+            <traverse>
+                <setting>
+                    <position> 0.0 </position>
+                    <time> 0.0 </time>
+                </setting>
+                <setting>
+                    <position> 1.0 </position>
+                    <time> 7.5 </time>
+                </setting>
+            </traverse>
+            <output>fcs/right-brake-cmd-norm</output>
+        </kinematic>
+    </channel>
+
+
 
     <channel name="Pitch">
         <summer name="Pitch Trim Sum">
