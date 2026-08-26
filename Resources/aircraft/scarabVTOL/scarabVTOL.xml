@@ -19,7 +19,7 @@
 		<z>	2.00	</z>																					
 	</location>																								
 	<location name="VRP" unit="M">																								
-		<x>	6.98	</x>																					
+		<x>	6.80	</x>																					
 		<y>	0.00	</y>																					
 		<z>	1.50	</z>																					
 	</location>																								
@@ -36,33 +36,34 @@
 		<x>	5.98	</x>																					
 		<y>	0.00	</y>																					
 		<z>	0.12	</z>																					
-	</location>			
-
-	<pointmass name="cargobay">
-    	<weight unit="KG"> 0 </weight>
-    	<location unit="M">
-      	<x>	5.98	</x>	
-      	<y> 0.0 </y>
-      	<z>	0.12	</z>
-    	</location>
-  	</pointmass>
-
+	</location>																								
+	<pointmass name="cargohold">																								
+		<weight unit="KG"> 0 </weight>																							
+		<location unit="M">																							
+			<x>	5.98	</x>																				
+			<y>	0.00	</y>																				
+			<z>	0.12	</z>																				
+		</location>																							
+	</pointmass>																								
+																									
+																									
+																									
 </mass_balance>																									
 																									
 																									
-<ground_reactions file="Gear.xml" />																									
-<propulsion file="Propulsion.xml" />																									
-<aerodynamics file="Aero.xml" />																									
-<flight_control file="FlightControl.xml" />																									
-<system file="Effectors.xml" /> 		
-<external_reactions>
-	<force name="UE_CollisionForce" frame="BODY">
-		<location unit="IN">
-			<x>0.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
-		</location>
-		<magnitude> 0.0 </magnitude>
-	</force>
-</external_reactions>																							
+	<ground_reactions file="Gear.xml" />																								
+	<propulsion file="Propulsion.xml" />																								
+	<aerodynamics file="Aero.xml" />																								
+	<flight_control file="FlightControl.xml" />																								
+	<system file="Effectors.xml" /> 																								
+	<external_reactions>																								
+		<force name="UE_CollisionForce" frame="BODY">																							
+			<location unit="IN">																						
+				<x>0.0</x>																					
+				<y>0.0</y>																					
+				<z>0.0</z>																					
+			</location>																						
+			<magnitude> 0.0 </magnitude>																						
+		</force>																							
+	</external_reactions>																								
 </fdm_config>																									

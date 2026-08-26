@@ -36,17 +36,18 @@
 		<x>	5.98	</x>																					
 		<y>	0.00	</y>																					
 		<z>	0.12	</z>																					
-	</location>						
-
-	<pointmass name="cargobay">
-    	<weight unit="KG"> 0 </weight>
-    	<location unit="M">
-      		<x>	5.98	</x>	
-      		<y> 0.0 </y>
-      		<z>	0.12	</z>
-    	</location>
-  	</pointmass>
-
+	</location>																								
+	<pointmass name="cargohold">																								
+		<weight unit="KG"> 0 </weight>																							
+		<location unit="M">																							
+			<x>	5.98	</x>																				
+			<y>	0.00	</y>																				
+			<z>	0.12	</z>																				
+		</location>																							
+	</pointmass>																								
+																									
+																									
+																									
 </mass_balance>																									
 																									
 																									

@@ -9,9 +9,10 @@
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="N/M"> 52000.0 </spring_coeff>
-		<damping_coeff unit="N/M/SEC"> 9000.0 </damping_coeff>
 		<max_steer unit="DEG"> 10.0 </max_steer>
+		<spring_coeff unit="N/M"> 120000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 25000.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 50000.0 </damping_coeff_rebound>
 		<brake_group> LEFT </brake_group>
 		<retractable>1</retractable>
 	</contact>
@@ -25,9 +26,10 @@
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="N/M"> 52000.0 </spring_coeff>
-		<damping_coeff unit="N/M/SEC"> 9000.0 </damping_coeff>
 		<max_steer unit="DEG"> 10.0 </max_steer>
+		<spring_coeff unit="N/M"> 120000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 25000.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 50000.0 </damping_coeff_rebound>
 		<brake_group> RIGHT </brake_group>
 		<retractable>1</retractable>
 	</contact>
@@ -41,8 +43,10 @@
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="N/M"> 62000.0 </spring_coeff>
-		<damping_coeff unit="N/M/SEC"> 10700.0 </damping_coeff>
+		<max_steer unit="DEG"> 10.0 </max_steer>
+		<spring_coeff unit="N/M"> 150000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 32000.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 65000.0 </damping_coeff_rebound>
 		<brake_group> LEFT </brake_group>
 		<retractable>1</retractable>
 	</contact>
@@ -56,9 +60,36 @@
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="N/M"> 62000.0 </spring_coeff>
-		<damping_coeff unit="N/M/SEC"> 10700.0 </damping_coeff>
+		<max_steer unit="DEG"> 10.0 </max_steer>
+		<spring_coeff unit="N/M"> 150000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 32000.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 65000.0 </damping_coeff_rebound>
 		<brake_group> RIGHT </brake_group>
 		<retractable>1</retractable>
 	</contact>
+
+	<contact type="STRUCTURE" name="Belly_Forward">
+		<location unit="M">
+			<x> 3.00 </x>
+			<y> 0.0 </y>
+			<z> -1.5 </z>
+		</location>
+		<static_friction> 0.7 </static_friction>
+		<dynamic_friction> 0.5 </dynamic_friction>
+		<spring_coeff unit="N/M"> 400000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 80000.0 </damping_coeff>
+	</contact>
+
+	<contact type="STRUCTURE" name="Belly_Aft">
+		<location unit="M">
+			<x> 8.5 </x>
+			<y> 0.0 </y>
+			<z> -1.5 </z>
+		</location>
+		<static_friction> 0.7 </static_friction>
+		<dynamic_friction> 0.5 </dynamic_friction>
+		<spring_coeff unit="N/M"> 400000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 80000.0 </damping_coeff>
+	</contact>
+
 </ground_reactions>
