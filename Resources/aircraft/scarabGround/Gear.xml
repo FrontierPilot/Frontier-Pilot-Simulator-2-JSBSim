@@ -4,7 +4,7 @@
 		<location unit="M">
 			<x> 3.00 </x>
 			<y> -1.8 </y>
-			<z> -3.5 </z> 
+			<z> -4.0 </z> 
 		</location>
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
@@ -21,7 +21,7 @@
 		<location unit="M">
 			<x> 3.00 </x>
 			<y> 1.8 </y>
-			<z> -3.5 </z> 
+			<z> -4.0 </z> 
 		</location>
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
@@ -38,7 +38,7 @@
 		<location unit="M">
 			<x> 8.5 </x>
 			<y> -1.8 </y>
-			<z> -3.5 </z> 
+			<z> -4.0 </z> 
 		</location>
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>
@@ -55,7 +55,7 @@
 		<location unit="M">
 			<x> 8.5 </x>
 			<y> 1.8 </y>
-			<z> -3.5 </z> 
+			<z> -4.0 </z> 
 		</location>
 		<static_friction>0.8</static_friction>
 		<dynamic_friction>0.5</dynamic_friction>

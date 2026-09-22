@@ -71,8 +71,14 @@
                 <min>-28</min>
                 <max>23</max>
             </range>
-            <output>fcs/elevator-pos-rad</output>
+            <output>fcs/elevator-cmd-rad</output>
         </aerosurface_scale>
+
+        <actuator name="Elevator Actuator">
+            <input>fcs/elevator-cmd-rad</input>
+            <rate_limit> 0.698 </rate_limit>
+            <output>fcs/elevator-pos-rad</output>
+        </actuator>
 
         <aerosurface_scale name="Elevator position normalized">
              <input>fcs/elevator-pos-deg</input>
@@ -105,8 +111,13 @@
                 <min>-20</min>
                 <max>15</max>
             </range>
-            <output>fcs/left-aileron-pos-rad</output>
+            <output>fcs/left-aileron-cmd-rad</output>
         </aerosurface_scale>
+        <actuator name="Left Aileron Actuator">
+            <input>fcs/left-aileron-cmd-rad</input>
+            <rate_limit> 0.698 </rate_limit>
+            <output>fcs/left-aileron-pos-rad</output>
+        </actuator>
 
         <aerosurface_scale name="Right Aileron Control">
             <input>fcs/roll-trim-sum</input>
@@ -115,9 +126,14 @@
                 <min> 15 </min>
                 <max> -20 </max>
             </range>
-            <output>fcs/right-aileron-pos-rad</output>
+            <output>fcs/right-aileron-cmd-rad</output>
         </aerosurface_scale>
 
+        <actuator name="Right Aileron Actuator">
+            <input>fcs/right-aileron-cmd-rad</input>
+            <rate_limit> 0.698 </rate_limit>
+            <output>fcs/right-aileron-pos-rad</output>
+        </actuator>
         <aerosurface_scale name="Left Aileron position normalized">
             <input>fcs/left-aileron-pos-deg</input>
             <domain>
@@ -162,8 +178,13 @@
                 <min>-25</min>
                 <max>25</max>
             </range>
-            <output>fcs/rudder-pos-rad</output>
+            <output>fcs/rudder-cmd-rad</output>
         </aerosurface_scale>
+        <actuator name="Rudder Actuator">
+            <input>fcs/rudder-cmd-rad</input>
+            <rate_limit> 0.576 </rate_limit>
+            <output>fcs/rudder-pos-rad</output>
+        </actuator>
 
         <aerosurface_scale name="Rudder position normalized">
              <input>fcs/rudder-pos-deg</input>
