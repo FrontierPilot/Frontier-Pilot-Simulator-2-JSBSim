@@ -14,7 +14,7 @@
     </actuator>
 
     <actuator name="Front Left">
-      <input>fcs/cmd_engine_LR_nd</input>
+      <input>fcs/cmd_engine_FL_nd</input>
       <clipto>
         <min>0.0</min>
         <max>1.0</max>

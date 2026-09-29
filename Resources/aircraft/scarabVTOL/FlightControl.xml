@@ -2,13 +2,36 @@
 <flight_control name="FCS: Scarab VTOL Auto Level">
   <property value="0.0">fcs/inputThrottle_nd</property>
 
-  <!-- Roll Auto Level -->
+  <!-- ======================================================================= -->
+  <!-- ROLL FLIGHT CONTROL PROPERTIES                                          -->
+  <!-- ======================================================================= -->
+
   <property value="0.0">fcs/refRoll_rad</property>
+  
+  <!-- AutoLevelRoll toggle:                                                   -->
+  <!-- 1.0 = Auto-level stabilization enabled                                  -->
+  <!-- 0.0 = Manual mode (Direct differential throttle control active)         -->
   <property value="1.0">fcs/AutoLevelRoll</property>
+
+  <!-- Normalized pilot stick                                                 -->
+  <!-- input: [-1.0 = Full Left Roll .. +1.0 = Full Right Roll]               -->
+  <!-- NOTE: с++ forces this to 0.0 whenever AutoLevelRoll == 1.0             -->
+  <property value="0.0">fcs/inputRoll_nd</property>
+  <property value="0.0">fcs/inputRoll_err</property>
+
+  <!-- Differential throttle offsets calculated per Engine for manual roll     -->
+  <property value="0.0">fcs/manualRoll_FR_nd</property>
+  <property value="0.0">fcs/manualRoll_FL_nd</property>
+
+  <!-- Manual roll authority gains (sensitivity scaling).                      -->
+  <property value="0.2">fcs/manualRoll_gain</property>
+
   <property>fcs/refRoll_rps</property>
   <property>fcs/errRoll_rps</property>
   <property>fcs/errRoll_rad</property>
   <property>fcs/refRoll_rps_from_angle_error</property>
+
+
 
   <!-- Pitch Auto Level -->
   <property value="0.0">fcs/refPitch_rad</property>
@@ -86,7 +109,7 @@
     </summer>
     <pid name="roll_angle_to_rate_pid">
       <input>fcs/errRoll_rad</input>
-      <kp>1.2</kp>
+      <kp>0.8</kp>
       <output>fcs/refRoll_rps_from_angle_error</output>
     </pid>
 
@@ -98,7 +121,11 @@
 
     <pid name="pitch_angle_to_rate_pid">
       <input>fcs/errPitch_rad</input>
-      <kp>1.2</kp>
+      <kp>1.1</kp>
+  <!--    <clipto>    
+        <min>-0.52</min>
+        <max> 0.52</max>
+      </clipto> -->
       <output>fcs/refPitch_rps_from_angle_error</output>
     </pid>
 
@@ -108,7 +135,7 @@
 
     <summer name="roll_error_summer">
       <input>fcs/refRoll_rps_from_angle_error</input>
-      <input>-velocities/pi-rad_sec</input>
+      <input>-velocities/p-rad_sec</input>
       <output>fcs/errRoll_rps</output>
     </summer>
 
@@ -120,7 +147,7 @@
 
     <pid name="roll_rate_pid">
       <input>fcs/errRoll_rps</input>
-      <kp>1.3</kp>
+      <kp>0.3</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdRoll_rps</output>
@@ -140,7 +167,7 @@
 
     <pid name="pitch_rate_pid">
       <input>fcs/errPitch_rps</input>
-      <kp>1.3</kp>
+      <kp>1.2</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdPitch_rps</output>
@@ -160,26 +187,117 @@
     
     <pid name="yaw_rate_pid">
       <input>fcs/errYaw_rps</input>
-      <kp>1.3</kp>
+      <kp>0.9</kp>
       <ki>0.0</ki>
       <kd>0.0</kd>
       <output>fcs/cmdYaw_rps</output> 
     </pid>
 
   </channel>
- 
+
+  <channel name="Control_Mixer_Roll_EnginesThrottle">
+
+<!--
+    <fcs_function name="ManualRoll_FR">
+      <function>
+        <product>
+          <property>fcs/inputThrottle_nd</property>
+          <property>fcs/inputRoll_nd</property>
+          <property>fcs/manualRoll_gain_FR</property>
+          <value>-1.0</value>
+        </product>
+      </function>
+      <output>fcs/manualRoll_FR_nd</output>
+    </fcs_function>
+
+
+    <fcs_function name="ManualRoll_FL">
+      <function>
+        <product>
+          <property>fcs/inputThrottle_nd</property>
+          <property>fcs/inputRoll_nd</property>
+          <property>fcs/manualRoll_gain_FL</property>
+          <value>1.0</value>
+        </product>
+      </function>
+      <output>fcs/manualRoll_FL_nd</output>
+    </fcs_function>
+-->
+
+    <fcs_function name="Roll_Error_Calc">
+      <function>
+        <product>
+          <property>attitude/phi-deg</property>
+          <property>fcs/inputRoll_nd</property>
+        </product>
+      </function>
+      <output>fcs/inputRoll_err</output>
+    </fcs_function>
+
+    <fcs_function name="ManualRoll_FR">
+      <function>
+        <product>
+          <property>fcs/inputThrottle_nd</property>
+          <property>fcs/inputRoll_nd</property>
+          <property>fcs/manualRoll_gain</property>
+          <value>-1.0</value>
+          <table>
+            <independentVar lookup="row">fcs/inputRoll_err</independentVar>
+            <tableData>
+              -180.0  1.0
+                 0.0  1.0
+                25.0  1.0
+                30.0  0.0
+               180.0  0.0
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/manualRoll_FR_nd</output>
+    </fcs_function>
+
+    <fcs_function name="ManualRoll_FL">
+      <function>
+        <product>
+          <property>fcs/inputThrottle_nd</property>
+          <property>fcs/inputRoll_nd</property>
+          <property>fcs/manualRoll_gain</property>
+          <value>1.0</value>
+          <table>
+            <independentVar lookup="row">fcs/inputRoll_err</independentVar>
+            <tableData>
+              -180.0  1.0
+                 0.0  1.0
+                25.0  1.0
+                30.0  0.0
+               180.0  0.0
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/manualRoll_FL_nd</output>
+    </fcs_function>
+
+  </channel>
+
   <channel name="Control_Mixer">
 
+    <!-- Front-Right Engine Command:                                          -->
+    <!-- Total = Base Throttle - AutoLevel SAS cmd + Manual Roll Offset (FR)  -->
     <summer name="Mixer_Engine_FR">
       <input>fcs/inputThrottle_nd</input>
       <input>-fcs/cmdRoll_rps</input>  
+      <input>fcs/manualRoll_FR_nd</input>
       <output>fcs/cmd_engine_FR_nd</output>
     </summer>
 
-    <summer name="Mixer_Engine_LR">
+    <!-- Front-Left Engine Command:                                           -->       
+    <!-- Total = Base Throttle + AutoLevel SAS cmd + Manual Roll Offset (FL)  -->
+    <summer name="Mixer_Engine_FL">
       <input>fcs/inputThrottle_nd</input>
-      <input>fcs/cmdRoll_rps</input>  
-      <output>fcs/cmd_engine_LR_nd</output>
+      <input>fcs/cmdRoll_rps</input>    
+      <input>fcs/manualRoll_FL_nd</input>
+      <output>fcs/cmd_engine_FL_nd</output>
     </summer>
 
     <summer name="Mixer_Pitch_Up">
