@@ -11,7 +11,7 @@
 				<property>velocities/w-aero-fps</property>																						
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
-			<value>	-1.4674	</value>																					
+			<value>	-3.0000	</value>																					
 		</product>																								
 	</function>																									
 	<function name="aero/table/vtol_cushion_factor">																									
@@ -32,8 +32,10 @@
 			<sum>																							
 				<property>propulsion/engine[0]/thrust-lbs</property>																						
 				<property>propulsion/engine[1]/thrust-lbs</property>																						
+				<property>propulsion/engine[2]/thrust-lbs</property>																						
+				<property>propulsion/engine[3]/thrust-lbs</property>																						
 			</sum>																							
-			<value>	-0.50	</value>			<!-- DESIGNER TOOL: Expose to external property for real-time game design tuning. -->																		
+			<value>	-0.20	</value>			<!-- DESIGNER TOOL: Expose to external property for real-time game design tuning. -->																		
 			<property>aero/table/vtol_cushion_factor</property>																							
 		</product>																								
 	</function>																									
@@ -49,7 +51,7 @@
 				<property>velocities/v-aero-fps</property>																						
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
-			<value>	-0.8544	</value>																					
+			<value>	-3.0000	</value>																					
 		</product>																								
 	</function>																									
 </axis>																										
@@ -64,7 +66,7 @@
 				<property>velocities/u-aero-fps</property>																						
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
-			<value>	-0.2571	</value>																					
+			<value>	-2.5708	</value>																					
 		</product>																								
 	</function>																									
 </axis>																										
@@ -80,7 +82,7 @@
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
 			<property>metrics/cbarw-ft</property>																							
-			<value>	-278.5378	</value>	<!-- imperial system -->																				
+			<value>	-62.0001	</value>	<!-- imperial system -->																				
 		</product>																								
 	</function>																									
 </axis>																										
@@ -96,7 +98,7 @@
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
 			<property>metrics/bw-ft</property>																							
-			<value>	-41.5430	</value>	<!-- imperial system -->																				
+			<value>	-4.8712	</value>	<!-- imperial system -->																				
 		</product>																								
 	</function>																									
 </axis>																										
@@ -112,7 +114,7 @@
 			</abs>																							
 			<property>metrics/Sw-sqft</property>																							
 			<property>metrics/bw-ft</property>																							
-			<value>	-66.0555	</value>	<!-- imperial system -->																				
+			<value>	-3.8750	</value>	<!-- imperial system -->																				
 		</product>																								
 	</function>																									
 </axis>																										

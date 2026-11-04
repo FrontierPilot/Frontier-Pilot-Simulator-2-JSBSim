@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<ground_reactions>
+
+	<contact type="BOGEY" name="Gear_FR">
+		<location unit="M">
+			<x> 0.5 </x>
+			<y> 0.5 </y>
+			<z> -0.6 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+
+		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>
+
+		<retractable>0</retractable>
+	</contact>
+
+	<contact type="BOGEY" name="Gear_FL">
+		<location unit="M">
+			<x> 0.5 </x>
+			<y> -0.5 </y>
+			<z> -0.6 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+
+		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>
+
+		<retractable>0</retractable>
+	</contact>
+
+	<contact type="BOGEY" name="Gear_TR">
+		<location unit="M">
+			<x> -0.5 </x>
+			<y> 0.5 </y>
+			<z> -0.6 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+
+		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>
+
+		<retractable>0</retractable>
+	</contact>
+
+
+
+	<contact type="BOGEY" name="Gear_TL">
+		<location unit="M">
+			<x> -0.5 </x>
+			<y> -0.5 </y>
+			<z> -0.6 </z> 
+		</location>
+		<static_friction>0.8</static_friction>
+		<dynamic_friction>0.5</dynamic_friction>
+		<rolling_friction>0.02</rolling_friction>
+
+		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>
+		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>
+		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>
+
+		<retractable>0</retractable>
+	</contact>
+
+ 
+
+</ground_reactions>

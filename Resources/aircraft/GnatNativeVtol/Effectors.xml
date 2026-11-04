@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <system name="Effectors">
-
   <channel name="Throttle Conrollers">
 
     <actuator name="Front Right">
@@ -21,9 +20,9 @@
       </clipto>
       <output>fcs/throttle-cmd-norm[1]</output>
     </actuator>
- 
-    <actuator name="Engine_pitch_stab_Up">
-      <input>fcs/cmd_stab_up_nd</input>
+
+    <actuator name="Tail Right">
+      <input>fcs/cmd_engine_TR_nd</input>
       <clipto>
         <min>0.0</min>
         <max>1.0</max>
@@ -31,8 +30,8 @@
       <output>fcs/throttle-cmd-norm[2]</output>
     </actuator>
 
-    <actuator name="Engine_pitch_stab_Down">
-      <input>fcs/cmd_stab_down_nd</input>
+    <actuator name="Tail Left">
+      <input>fcs/cmd_engine_TL_nd</input>
       <clipto>
         <min>0.0</min>
         <max>1.0</max>
@@ -40,24 +39,5 @@
       <output>fcs/throttle-cmd-norm[3]</output>
     </actuator>
 
-    <actuator name="Engine_yaw_stab_Right">
-      <input>fcs/cmd_stab_yaw_right_nd</input>
-      <clipto>
-        <min>0.0</min>
-        <max>1.0</max>
-      </clipto>
-      <output>fcs/throttle-cmd-norm[4]</output> 
-    </actuator>
-
-    <actuator name="Engine_yaw_stab_Left">
-      <input>fcs/cmd_stab_yaw_left_nd</input>
-      <clipto>
-        <min>0.0</min>
-        <max>1.0</max>
-      </clipto>
-      <output>fcs/throttle-cmd-norm[5]</output> 
-    </actuator>
-
-   </channel>
-
+    </channel>
 </system>
