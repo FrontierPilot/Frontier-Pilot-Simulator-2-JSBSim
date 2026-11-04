@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <flight_control>
   
+    <property value="0.0">fcs/inputThrottle_nd</property>
+    <property value="1.0">fcs/AutoLevelPitch</property>
+    <property value="1.0">fcs/AutoLevelRoll</property>
+    <property value="1.0">fcs/AutoLevelYaw</property>
+    <property>fcs/left-brake-input-norm</property>
+    <property>fcs/right-brake-input-norm</property>
 
 </flight_control>
