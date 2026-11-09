@@ -20,9 +20,9 @@
 			<independentVar>aero/h_b-mac-ft</independentVar>																							
 			<tableData>																							
 				0.00	1.00																					
-				0.50	0.60																					
-				1.50	0.20																					
-				3.00	0.00																					
+				0.40	0.60																					
+				1.10	0.20																					
+				1.50	0.00																					
 			</tableData>																							
 		</table>																								
 	</function>																									

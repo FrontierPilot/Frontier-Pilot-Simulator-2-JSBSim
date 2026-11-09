@@ -1,126 +1,237 @@
 <?xml version="1.0"?>
 <flight_control name="Gnat">
-    <property value="0.0">fcs/inputThrottle_nd</property>
 
-  <!-- AutoLevelRoll toggle:                                                   -->
-  <!-- 1.0 = Auto-level stabilization enabled                                  -->
-  <!-- 0.0 = Manual mode (Direct differential throttle control active)         -->
     <property value="1.0">fcs/AutoLevelPitch</property>
     <property value="1.0">fcs/AutoLevelRoll</property>
     <property value="1.0">fcs/AutoLevelYaw</property>
-    
-    <property>fcs/left-brake-input-norm</property>
-    <property>fcs/right-brake-input-norm</property>
-
-    <!-- Pitch Auto Level -->
-    <property value="0.0">fcs/refPitch_rad</property>
-    <property>fcs/refPitch_rps</property>
-    <property>fcs/errPitch_rps</property>
-    <property>fcs/errPitch_rad</property>
-    <property>fcs/refPitch_rps_from_angle_error</property>
-    <property>fcs/cmdPitch_nd</property>
-
-    <!-- Roll Auto Level -->
-    <property value="0.0">fcs/refRoll_rad</property>
-    <property>fcs/refRoll_rps</property>
-    <property>fcs/errRoll_rps</property>
-    <property>fcs/errRoll_rad</property>
-    <property>fcs/refRoll_rps_from_angle_error</property>
-    <property>fcs/cmdRoll_nd</property>
-
-
-    <!-- Normalized pilot stick                                                 -->
-    <!-- input: [-1.0 = Full Left Roll .. +1.0 = Full Right Roll]               -->
-    <!-- NOTE: с++ forces this to 0.0 whenever AutoLevelRoll == 1.0             -->
+ 
+    <property value="0.0">fcs/inputThrottle_nd</property>
+    <property value="0.0">fcs/inputPitch_nd</property>
     <property value="0.0">fcs/inputRoll_nd</property>
-    <property value="0.7854">fcs/maxRollAngle_rad</property> <!-- 45 deg -->
+    <property value="0.0">fcs/inputYaw_nd</property>
 
-   <channel name="Pilot_Roll_Command">
 
-        <fcs_function name="Pilot_Roll_Angle_Target">
+    <property value="1.5708">fcs/engine_base_pitch_rad</property>
+
+    <property value="0.0">fcs/refPitch_rad</property>
+    <property value="0.0">fcs/refRoll_rad</property>
+    <property value="0.0">fcs/errPitch_rad</property>
+    <property value="0.0">fcs/errRoll_rad</property>
+
+    <property value="0.0">fcs/refPitch_rps</property>
+    <property value="0.0">fcs/refRoll_rps</property>
+    <property value="0.0">fcs/refYaw_rps</property>
+
+    <property value="0.0">fcs/errPitch_rps</property>
+    <property value="0.0">fcs/errRoll_rps</property>
+    <property value="0.0">fcs/errYaw_rps</property>
+
+    <property value="0.0">fcs/cmdPitch_pid</property>
+    <property value="0.0">fcs/cmdRoll_pid</property>
+    <property value="0.0">fcs/cmdYaw_pid</property>
+    <property value="0.0">fcs/cmdYawAngle_pid_rad</property>
+
+    <property value="0.0">fcs/cmdPitch_nd</property>
+    <property value="0.0">fcs/cmdRoll_nd</property>
+    <property value="0.0">fcs/cmdYawAngle_rad</property>
+
+    <!-- Команды тяги двигателей -->
+    <property value="0.0">fcs/cmd_engine_FR_nd</property>
+    <property value="0.0">fcs/cmd_engine_FL_nd</property>
+    <property value="0.0">fcs/cmd_engine_TR_nd</property>
+    <property value="0.0">fcs/cmd_engine_TL_nd</property>
+
+
+    <channel name="Nozzle_Vector_Control">
+
+        <fcs_function name="Calc_Engine_Base_Pitch">
             <function>
-                <product>
-                    <property>fcs/inputRoll_nd</property>
-                    <property>fcs/maxRollAngle_rad</property>
-                </product>
+                <difference>
+                    <value>1.5708</value> <!-- 90 deg -->
+                    <product>
+                        <property>fcs/inputPitch_nd</property>
+                        <value>0.5236</value> <!-- +/- 30 deg -->
+                    </product>
+                </difference>
             </function>
-            <output>fcs/refRoll_rad</output>
+            <output>fcs/engine_base_pitch_rad</output>
         </fcs_function>
 
     </channel>
 
+
     <channel name="OuterLoop-Angles">
 
         <!-- Pitch -->
-        <summer name="pitch_angle_error_summer">
+        <summer name="Pitch_Angle_Error">
             <input>fcs/refPitch_rad</input>
             <input>-attitude/pitch-rad</input>
             <output>fcs/errPitch_rad</output>
         </summer>
 
-        <pid name="pitch_angle_to_rate_pid">
+        <pure_gain name="Pitch_Angle_to_Rate">
             <input>fcs/errPitch_rad</input>
-            <kp>1.1</kp>
-            <ki>0.0</ki>
-            <kd>0.0</kd>
-            <output>fcs/refPitch_rps_from_angle_error</output>
-        </pid>
+            <gain>3.0</gain>
+            <output>fcs/refPitch_rps</output>
+        </pure_gain>
 
+        <!-- Roll -->
+        <pure_gain name="Stick_to_RefRoll">
+            <input>fcs/inputRoll_nd</input>
+            <gain>0.524</gain>
+            <output>fcs/refRoll_rad</output>
+        </pure_gain>
 
-        <!--  Roll -->
-        <summer name="roll_angle_error_summer">
+        <summer name="Roll_Angle_Error">
             <input>fcs/refRoll_rad</input>
-            <input>-attitude/roll-rad</input>
+            <input>-attitude/phi-rad</input>
             <output>fcs/errRoll_rad</output>
         </summer>
 
-        <pid name="roll_angle_to_rate_pid">
+        <pure_gain name="Roll_Angle_to_Rate">
             <input>fcs/errRoll_rad</input>
-            <kp>1.1</kp>
-            <ki>0.0</ki>
-            <kd>0.0</kd>
-            <output>fcs/refRoll_rps_from_angle_error</output>
-        </pid>
+            <gain>3.0</gain>
+            <output>fcs/refRoll_rps</output>
+        </pure_gain>
+
+        <!-- Yaw -->
+        <pure_gain name="Stick_to_RefYaw">
+            <input>fcs/inputYaw_nd</input>
+            <gain>1.05</gain>
+            <output>fcs/refYaw_rps</output>
+        </pure_gain>
 
     </channel>
+
 
     <channel name="InnerLoop-Rates">
 
         <!-- Pitch -->
-        <summer name="pitch_error_summer">
-            <input>fcs/refPitch_rps_from_angle_error</input>
-            <input>-velocities/qi-rad_sec</input>
+        <summer name="Pitch_Rate_Error_Raw">
+            <input>fcs/refPitch_rps</input>
+            <input>-velocities/q-rad_sec</input>
             <output>fcs/errPitch_rps</output>
         </summer>
 
-        <pure_gain>
+        <pure_gain name="Gate_Pitch_Error">
             <input>fcs/errPitch_rps</input>
             <gain>fcs/AutoLevelPitch</gain>
             <output>fcs/errPitch_rps</output>
         </pure_gain>
 
-        <pid name="pitch_rate_pid">
+        <pid name="Pitch_Rate_PID">
             <input>fcs/errPitch_rps</input>
-            <kp>1.1</kp>
-            <ki>0.0</ki>
-            <kd>0.0</kd>
-            <output>fcs/cmdPitch_nd</output>
+            <kp>0.25</kp>
+            <ki>0.05</ki>
+            <kd>0.015</kd>
+            <clipto><min>-0.3</min><max>0.3</max></clipto>
+            <output>fcs/cmdPitch_pid</output>
         </pid>
 
-        <!--  Roll -->
-         <summer name="roll_error_summer">
-            <input>fcs/refRoll_rps_from_angle_error</input>
-            <input>-velocities/pi-rad_sec</input>
+        <!-- Roll -->
+        <summer name="Roll_Rate_Error_Raw">
+            <input>fcs/refRoll_rps</input>
+            <input>-velocities/p-rad_sec</input>
             <output>fcs/errRoll_rps</output>
         </summer>
 
-        <pid name="roll_rate_pid">
+        <pure_gain name="Gate_Roll_Error">
             <input>fcs/errRoll_rps</input>
-            <kp>1.1</kp>
-            <ki>0.0</ki>
-            <kd>0.0</kd>
-            <output>fcs/cmdRoll_nd</output>
+            <gain>fcs/AutoLevelRoll</gain>
+            <output>fcs/errRoll_rps</output>
+        </pure_gain>
+
+        <pid name="Roll_Rate_PID">
+            <input>fcs/errRoll_rps</input>
+            <kp>0.20</kp>
+            <ki>0.04</ki>
+            <kd>0.012</kd>
+            <clipto><min>-0.3</min><max>0.3</max></clipto>
+            <output>fcs/cmdRoll_pid</output>
         </pid>
+
+        <!-- Yaw -->
+        <summer name="Yaw_Rate_Error_Raw">
+            <input>fcs/refYaw_rps</input>
+            <input>-velocities/r-rad_sec</input>
+            <output>fcs/errYaw_rps</output>
+        </summer>
+
+        <pure_gain name="Gate_Yaw_Error">
+            <input>fcs/errYaw_rps</input>
+            <gain>fcs/AutoLevelYaw</gain>
+            <output>fcs/errYaw_rps</output>
+        </pure_gain>
+
+        <pid name="Yaw_Rate_PID">
+            <input>fcs/errYaw_rps</input>
+            <kp>0.10</kp>                                 
+            <ki>0.02</ki>
+            <kd>0.005</kd>
+            <clipto>
+                <min>-0.1745</min>                        <!-- 10 deg -->
+                <max> 0.1745</max>
+            </clipto>
+            <output>fcs/cmdYawAngle_pid_rad</output>
+        </pid>
+
+    </channel>
+
+
+
+    <channel name="Mode_Selectors">
+
+        <!-- Roll -->
+        <fcs_function name="Select_Roll_Command">
+            <function>
+                <sum>
+                    <product>
+                        <property>fcs/cmdRoll_pid</property>
+                        <property>fcs/AutoLevelRoll</property>
+                    </product>
+                    <product>
+                        <property>fcs/inputRoll_nd</property>
+                        <difference>
+                            <value>1.0</value>
+                            <property>fcs/AutoLevelRoll</property>
+                        </difference>
+                    </product>
+                </sum>
+            </function>
+            <output>fcs/cmdRoll_nd</output>
+        </fcs_function>
+
+        <!-- Yaw  AutoLevelYaw = 1.0 select PID, 0.0 select input 10° -->
+        <fcs_function name="Select_Yaw_Command">
+            <function>
+                <sum>
+                    <product>
+                        <property>fcs/cmdYawAngle_pid_rad</property>
+                        <property>fcs/AutoLevelYaw</property>
+                    </product>
+                    <product>
+                        <property>fcs/inputYaw_nd</property>
+                        <value>0.1745</value>             <!-- 10 deg -->
+                        <difference>
+                            <value>1.0</value>
+                            <property>fcs/AutoLevelYaw</property>
+                        </difference>
+                    </product>
+                </sum>
+            </function>
+            <output>fcs/cmdYawAngle_rad</output>
+        </fcs_function>
+
+        <!-- Pitch  -->
+        <fcs_function name="Select_Pitch_Command">
+            <function>
+                <product>
+                    <property>fcs/cmdPitch_pid</property>
+                    <property>fcs/AutoLevelPitch</property>
+                </product>
+            </function>
+            <output>fcs/cmdPitch_nd</output>
+        </fcs_function>
 
     </channel>
 

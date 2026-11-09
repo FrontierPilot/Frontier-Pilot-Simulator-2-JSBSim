@@ -5,9 +5,9 @@
 	<wingspan unit="M">				1.60	</wingspan>																			
 	<chord unit="M">				0.10	</chord>																			
 	<location name="AERORP" unit="M">																								
-<x>	0.60	</x>
-<y>	0.00	</y>
-<z>	-0.01	</z>																					
+		<x>	0.60	</x>																					
+		<y>	0.00	</y>																					
+		<z>	0.30	</z>																					
 	</location>																								
 	<location name="EYEPOINT" unit="M">																								
 		<x>	0.00	</x>																					
@@ -22,13 +22,13 @@
 </metrics>																									
 																									
 <mass_balance>																									
-	<ixx unit="KG*M2">				30.18	</ixx>																			
-	<iyy unit="KG*M2">				31.31	</iyy>																			
-	<izz unit="KG*M2">				41.27	</izz>																			
+	<ixx unit="KG*M2">				34.18	</ixx>																			
+	<iyy unit="KG*M2">				35.98	</iyy>																			
+	<izz unit="KG*M2">				45.93	</izz>																			
 	<ixy unit="KG*M2">				0.00	</ixy>																			
 	<ixz unit="KG*M2">				0.00	</ixz>																			
 	<iyz unit="KG*M2"> 				0.00	</iyz>																			
-	<emptywt unit="KG">				132.00	</emptywt>																			
+	<emptywt unit="KG">				182.00	</emptywt>																			
 	<location name="CG" unit="M">																								
 		<x>	0.60	</x>																					
 		<y>	0.00	</y>																					
