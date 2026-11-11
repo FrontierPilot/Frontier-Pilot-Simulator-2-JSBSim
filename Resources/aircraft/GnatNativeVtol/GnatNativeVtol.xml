@@ -22,18 +22,26 @@
 </metrics>																									
 																									
 <mass_balance>																									
-	<ixx unit="KG*M2">				34.18	</ixx>																			
-	<iyy unit="KG*M2">				35.98	</iyy>																			
-	<izz unit="KG*M2">				45.93	</izz>																			
+	<ixx unit="KG*M2">				30.18	</ixx>																			
+	<iyy unit="KG*M2">				31.31	</iyy>																			
+	<izz unit="KG*M2">				41.27	</izz>																			
 	<ixy unit="KG*M2">				0.00	</ixy>																			
 	<ixz unit="KG*M2">				0.00	</ixz>																			
 	<iyz unit="KG*M2"> 				0.00	</iyz>																			
-	<emptywt unit="KG">				182.00	</emptywt>																			
+	<emptywt unit="KG">				132.00	</emptywt>																			
 	<location name="CG" unit="M">																								
 		<x>	0.60	</x>																					
 		<y>	0.00	</y>																					
 		<z>	-0.01	</z>																					
 	</location>																								
+	<pointmass name="cargohold">        																								
+		<weight unit="KG"> 0 </weight>																							
+		<location unit="M">																							
+				<x>	0.60	</x>																			
+				<y>	0	</y>																			
+				<z>	-0.60	</z> 																			
+		</location> 																							
+	</pointmass>																								
 </mass_balance>																									
 																									
 <ground_reactions>																									
@@ -47,9 +55,9 @@
 		<static_friction>0.8</static_friction>																							
 		<dynamic_friction>0.5</dynamic_friction>																							
 		<rolling_friction>0.02</rolling_friction>																							
-		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>																							
-		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>																							
-		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>																							
+		<spring_coeff unit="N/M">				10000	</spring_coeff>																		
+		<damping_coeff unit="N/M/SEC">				800	</damping_coeff>																		
+		<damping_coeff_rebound unit="N/M/SEC"> 					500	 </damping_coeff_rebound>																	
 		<retractable>0</retractable>																							
 	</contact>																								
 																									
@@ -62,9 +70,9 @@
 		<static_friction>0.8</static_friction>																							
 		<dynamic_friction>0.5</dynamic_friction>																							
 		<rolling_friction>0.02</rolling_friction>																							
-		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>																							
-		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>																							
-		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>																							
+		<spring_coeff unit="N/M">				10000.00	</spring_coeff>																		
+		<damping_coeff unit="N/M/SEC">				800.00	</damping_coeff>																		
+		<damping_coeff_rebound unit="N/M/SEC"> 					500.00	 </damping_coeff_rebound>																	
 		<retractable>0</retractable>																							
 	</contact>																								
 																									
@@ -77,9 +85,9 @@
 		<static_friction>0.8</static_friction>																							
 		<dynamic_friction>0.5</dynamic_friction>																							
 		<rolling_friction>0.02</rolling_friction>																							
-		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>																							
-		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>																							
-		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>																							
+		<spring_coeff unit="N/M">				10000.00	</spring_coeff>																		
+		<damping_coeff unit="N/M/SEC">				800.00	</damping_coeff>																		
+		<damping_coeff_rebound unit="N/M/SEC"> 					500.00	 </damping_coeff_rebound>																	
 		<retractable>0</retractable>																							
 	</contact>																								
 																									
@@ -92,9 +100,9 @@
 		<static_friction>0.8</static_friction>																							
 		<dynamic_friction>0.5</dynamic_friction>																							
 		<rolling_friction>0.02</rolling_friction>																							
-		<spring_coeff unit="N/M"> 13000.0 </spring_coeff>																							
-		<damping_coeff unit="N/M/SEC"> 650.0 </damping_coeff>																							
-		<damping_coeff_rebound unit="N/M/SEC"> 1100.0 </damping_coeff_rebound>																							
+		<spring_coeff unit="N/M">				10000.00	</spring_coeff>																		
+		<damping_coeff unit="N/M/SEC">				800.00	</damping_coeff>																		
+		<damping_coeff_rebound unit="N/M/SEC"> 					500.00	 </damping_coeff_rebound>																	
 		<retractable>0</retractable>																							
 	</contact>																								
 																									

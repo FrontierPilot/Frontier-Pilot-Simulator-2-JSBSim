@@ -5,25 +5,37 @@
 
     <actuator name="Front Right Throttle">
       <input>fcs/cmd_engine_FR_nd</input>
-      <clipto><min>0.0</min><max>1.0</max></clipto>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
       <output>fcs/throttle-cmd-norm[0]</output>
     </actuator>
 
     <actuator name="Front Left Throttle">
       <input>fcs/cmd_engine_FL_nd</input>
-      <clipto><min>0.0</min><max>1.0</max></clipto>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
       <output>fcs/throttle-cmd-norm[1]</output>
     </actuator>
 
     <actuator name="Tail Right Throttle">
       <input>fcs/cmd_engine_TR_nd</input>
-      <clipto><min>0.0</min><max>1.0</max></clipto>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
       <output>fcs/throttle-cmd-norm[2]</output>
     </actuator>
 
     <actuator name="Tail Left Throttle">
       <input>fcs/cmd_engine_TL_nd</input>
-      <clipto><min>0.0</min><max>1.0</max></clipto>
+      <clipto>
+        <min>0.0</min>
+        <max>1.0</max>
+      </clipto>
       <output>fcs/throttle-cmd-norm[3]</output>
     </actuator>
 
@@ -34,25 +46,25 @@
 
     <summer name="Angle_Engine_FR">
       <input>fcs/engine_base_pitch_rad</input>
-      <input>fcs/cmdYawAngle_rad</input>
+      <input>fcs/v2_cmdYaw_nd</input>
       <output>propulsion/engine[0]/pitch-angle-rad</output>
     </summer>
 
     <summer name="Angle_Engine_FL">
       <input>fcs/engine_base_pitch_rad</input>
-      <input>-fcs/cmdYawAngle_rad</input>
+      <input>-fcs/v2_cmdYaw_nd</input>
       <output>propulsion/engine[1]/pitch-angle-rad</output>
     </summer>
 
     <summer name="Angle_Engine_TR">
       <input>fcs/engine_base_pitch_rad</input>
-      <input>fcs/cmdYawAngle_rad</input>
+      <input>fcs/v2_cmdYaw_nd</input>
       <output>propulsion/engine[2]/pitch-angle-rad</output>
     </summer>
 
     <summer name="Angle_Engine_TL">
       <input>fcs/engine_base_pitch_rad</input>
-      <input>-fcs/cmdYawAngle_rad</input>
+      <input>-fcs/v2_cmdYaw_nd</input>
       <output>propulsion/engine[3]/pitch-angle-rad</output>
     </summer>
 

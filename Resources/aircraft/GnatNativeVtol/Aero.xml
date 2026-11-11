@@ -14,15 +14,16 @@
 			<value>	-3.0000	</value>																					
 		</product>																								
 	</function>																									
+	<!--																									
 	<function name="aero/table/vtol_cushion_factor">																									
 		<description>Cushion decay: Extended to 3.0 MAC for smoother feel</description>																								
 		<table>																								
 			<independentVar>aero/h_b-mac-ft</independentVar>																							
 			<tableData>																							
 				0.00	1.00																					
-				0.40	0.60																					
-				1.10	0.20																					
-				1.50	0.00																					
+				0.50	0.60																					
+				1.50	0.20																					
+				3.00	0.00																					
 			</tableData>																							
 		</table>																								
 	</function>																									
@@ -35,10 +36,11 @@
 				<property>propulsion/engine[2]/thrust-lbs</property>																						
 				<property>propulsion/engine[3]/thrust-lbs</property>																						
 			</sum>																							
-			<value>	-0.20	</value>			<!-- DESIGNER TOOL: Expose to external property for real-time game design tuning. -->																		
+			<value>	-0.20	</value>																					
 			<property>aero/table/vtol_cushion_factor</property>																							
 		</product>																								
 	</function>																									
+	-->																									
 </axis>																										
 																										
 <axis name="Y">																										
